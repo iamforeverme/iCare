@@ -1,4 +1,4 @@
-name := """my-first-app"""
+name := """iCare"""
 
 version := "1.0-SNAPSHOT"
 

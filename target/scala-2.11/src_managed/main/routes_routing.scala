@@ -1,6 +1,6 @@
-// @SOURCE:D:/workSpace/webApp/iCare/conf/routes
-// @HASH:b31e3ed4075748bc0576b3b7654b92b97f9d84ad
-// @DATE:Mon Apr 27 20:05:08 CST 2015
+// @SOURCE:C:/08_workspace/iCare/conf/routes
+// @HASH:6a60b84db1de7d7f0ae39cab42b77f63e7adfb54
+// @DATE:Mon Apr 27 21:30:53 CST 2015
 
 
 import play.core._
