@@ -23,33 +23,50 @@ import views.html._
 object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template1[String,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(message: String):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(title : String):play.twirl.api.HtmlFormat.Appendable = {
       _display_ {
 
-Seq[Any](format.raw/*1.19*/("""
+Seq[Any](format.raw/*1.18*/("""
+"""),format.raw/*2.1*/("""<!DOCTYPE html>
+<html>
+  <head>
+    <title>"""),_display_(/*5.13*/title),format.raw/*5.18*/("""</title>
+    
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-"""),_display_(/*3.2*/main("Welcome to Play")/*3.25*/ {_display_(Seq[Any](format.raw/*3.27*/("""
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
 
-    """),_display_(/*5.6*/play20/*5.12*/.welcome(message, style = "Java")),format.raw/*5.45*/("""
-
-""")))}),format.raw/*7.2*/("""
+    <!-- Styles -->
+    
+    
+    <!-- Enables internationalization -->
+   
+  </head>
+  
+  <body class="app" >
+  
+  
+  </body>
+</html>
 """))}
   }
 
-  def render(message:String): play.twirl.api.HtmlFormat.Appendable = apply(message)
+  def render(title:String): play.twirl.api.HtmlFormat.Appendable = apply(title)
 
-  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (message) => apply(message)
+  def f:((String) => play.twirl.api.HtmlFormat.Appendable) = (title) => apply(title)
 
   def ref: this.type = this
 
 }
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 27 21:30:54 CST 2015
+                  DATE: Mon Apr 27 22:33:33 CST 2015
                   SOURCE: C:/08_workspace/iCare/app/views/index.scala.html
-                  HASH: 605e6cdfecebab24bb17d3e489b0562bafda5a2d
-                  MATRIX: 723->1|828->18|858->23|889->46|928->48|962->57|976->63|1029->96|1063->101
-                  LINES: 26->1|29->1|31->3|31->3|31->3|33->5|33->5|33->5|35->7
+                  HASH: fd93a8153e81a4f1987542f4eb3bd2d1e410073b
+                  MATRIX: 723->1|827->17|855->19|928->66|953->71
+                  LINES: 26->1|29->1|30->2|33->5|33->5
                   -- GENERATED --
               */
           

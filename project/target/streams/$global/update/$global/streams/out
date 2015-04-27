@@ -12318,7 +12318,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.5!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 7345ms :: artifacts dl 430ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 7455ms :: artifacts dl 390ms[0m
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT compile produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT runtime produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT test produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-test.xml[0m
@@ -12332,5 +12332,5 @@
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT docs produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT pom produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#icare-build;0.1-SNAPSHOT scala-tool produced in C:\08_workspace\iCare\project\target\resolution-cache\reports\default-icare-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (7345ms resolve - 430ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (7455ms resolve - 390ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
