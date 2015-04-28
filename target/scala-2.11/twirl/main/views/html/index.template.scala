@@ -36,7 +36,7 @@ Seq[Any](format.raw/*1.18*/("""
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
 
     <!-- Styles -->
     
@@ -49,7 +49,14 @@ Seq[Any](format.raw/*1.18*/("""
   
   
   </body>
-</html>
+  
+  <script src="/bower_components/angular/angular.min.js"></script>
+
+    <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
+    <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
+    """),_display_(/*29.6*/helper/*29.12*/.requireJs(core =
+    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")),format.raw/*30.95*/("""
+"""),format.raw/*31.1*/("""</html>
 """))}
   }
 
@@ -62,11 +69,11 @@ Seq[Any](format.raw/*1.18*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Mon Apr 27 22:33:33 CST 2015
+                  DATE: Tue Apr 28 14:30:24 CST 2015
                   SOURCE: C:/08_workspace/iCare/app/views/index.scala.html
-                  HASH: fd93a8153e81a4f1987542f4eb3bd2d1e410073b
-                  MATRIX: 723->1|827->17|855->19|928->66|953->71
-                  LINES: 26->1|29->1|30->2|33->5|33->5
+                  HASH: c6a6ba996fa061c44f12d6003f42edad37f290a9
+                  MATRIX: 723->1|827->17|855->19|928->66|953->71|1760->852|1775->858|1909->971|1938->973
+                  LINES: 26->1|29->1|30->2|33->5|33->5|57->29|57->29|58->30|59->31
                   -- GENERATED --
               */
           

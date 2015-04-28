@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
 
     <!-- Styles -->
     
@@ -21,4 +21,11 @@
   
   
   </body>
+  
+  <script src="/bower_components/angular/angular.min.js"></script>
+
+    <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
+    <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
+    @helper.requireJs(core =
+    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")
 </html>
