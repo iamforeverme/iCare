@@ -37,26 +37,34 @@ Seq[Any](format.raw/*1.18*/("""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
-
-    <!-- Styles -->
     
+
+    <!-- Styles -->    
+   		<!-- mobile -->
+    <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
     
     <!-- Enables internationalization -->
    
   </head>
   
   <body class="app" >
-  
+  		<div id="icareApp" style="height:100%; padding:10px" ui-view>
+			<!-- This is the container where the tabs will render -->
+		</div>
   
   </body>
   
-  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <!--  
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+  -->
 
     <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
     <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
-    """),_display_(/*29.6*/helper/*29.12*/.requireJs(core =
-    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")),format.raw/*30.95*/("""
-"""),format.raw/*31.1*/("""</html>
+    """),_display_(/*37.6*/helper/*37.12*/.requireJs(core =
+    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")),format.raw/*38.95*/("""
+"""),format.raw/*39.1*/("""</html>
 """))}
   }
 
@@ -69,11 +77,11 @@ Seq[Any](format.raw/*1.18*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Tue Apr 28 14:30:24 CST 2015
+                  DATE: Wed May 06 13:34:45 CST 2015
                   SOURCE: C:/08_workspace/iCare/app/views/index.scala.html
-                  HASH: c6a6ba996fa061c44f12d6003f42edad37f290a9
-                  MATRIX: 723->1|827->17|855->19|928->66|953->71|1760->852|1775->858|1909->971|1938->973
-                  LINES: 26->1|29->1|30->2|33->5|33->5|57->29|57->29|58->30|59->31
+                  HASH: b276d051e2cfc2ad6bea498b577b2316e46ab7ab
+                  MATRIX: 723->1|827->17|855->19|928->66|953->71|2240->1332|2255->1338|2389->1451|2418->1453
+                  LINES: 26->1|29->1|30->2|33->5|33->5|65->37|65->37|66->38|67->39
                   -- GENERATED --
               */
           

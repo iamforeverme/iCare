@@ -21,7 +21,7 @@ require.config({
     xhtml : false,
     // urlArgs : '_=' + Date.now(),
     waitSeconds : 15,
-    packages : ["controllers", "directives", "filters", "services"],
+    packages : ["directives", "services"],
     paths : {
         // NAMED REFERENCES
         config : 'config',
@@ -31,11 +31,13 @@ require.config({
         // Bootstrap
         
         // jquery: '../bower_components/iids/components/jquery/jquery.min',
-        jquery : '../bower_components/jquery/jquery',
+        jquery : '../bower_components/jquery/dist/jquery',
         requirejs : '../bower_components/requirejs/require',
 
         // angularjs + modules
-        angular : '../bower_components/angular/angular.min',
+        angular : '../bower_components/angular/angular',
+        'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
+        'angular-mobile': '../bower_components/mobile-angular-ui/dist/js/mobile-angular-ui'
 
     },
     
@@ -48,7 +50,7 @@ require.config({
         bootstrap : {
             deps : [ 'jquery' ],
             exports : '$.fn.modal'
-        },
+        }
     },
     config : {
         
@@ -56,8 +58,8 @@ require.config({
 });
 
 //Load the first app module and start app
-/*require([], function(){
-    
-});*/
+require(["../common/app-config.js"], function(icare){
+   icare.startApp(); 
+});
 
 

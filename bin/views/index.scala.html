@@ -9,20 +9,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
-
-    <!-- Styles -->
     
+
+    <!-- Styles -->    
+   		<!-- mobile -->
+    <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
     
     <!-- Enables internationalization -->
    
   </head>
   
   <body class="app" >
-  
+  		<div id="icareApp" style="height:100%; padding:10px" ui-view>
+			<!-- This is the container where the tabs will render -->
+		</div>
   
   </body>
   
-  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <!--  
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+  -->
 
     <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
     <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
