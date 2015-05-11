@@ -1,39 +1,51 @@
 @(title : String)
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>@title</title>
-    
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>@title</title>
 
-    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
-    
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Styles -->    
-   		<!-- mobile -->
-    <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
-    
-    <!-- Enables internationalization -->
-   
-  </head>
-  
-  <body class="app" >
-  		<div id="icareApp" style="height:100%; padding:10px" ui-view>
-			<!-- This is the container where the tabs will render -->
+<link rel="shortcut icon" type="image/png"
+	href="/assets/images/favicon.png">
+
+
+<!-- Styles -->
+<!-- mobile -->
+<link rel="stylesheet"
+	href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+<!-- Enables internationalization -->
+</head>
+
+<!-- MainCtrl goes on "body" -->
+<body class="app">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- TabsCtrl goes here -->
+		<div class="container">
+			<ul class="nav nav-pills">
+				<!-- ng-repeat, tabs -->
+			</ul>
 		</div>
-  
-  </body>
-  
-  <script src="/bower_components/angular/angular.js"></script>
-  <!--  
+	</div>
+
+	<div id="icareApp" style="height: 100%; padding: 10px">
+		<!-- This is the container where the tabs will render -->		
+	</div>
+
+
+</body>
+
+<script src="/bower_components/angular/angular.js"></script>
+<!--  
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
   -->
 
-    <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
-    <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
-    @helper.requireJs(core =
-    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")
+<!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
+<!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
+@helper.requireJs(core = "/bower_components/requirejs/require.js",
+module = "/common/config.js", folder = "common")
 </html>

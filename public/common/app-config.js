@@ -11,30 +11,44 @@ require.config({
        
     },
 
-    packages : [ {
-        //name : "controllers",
-        //location : "../scripts/controllers/opsis-controllers",
-        ///main : "main"
-    }]
-
+    packages : [  {
+        name : "directives",
+        location : "../common/directives",
+        main : "main"
+    }, {
+        name : "services",
+        location : "../common/services",
+        main : "main"
+    },{
+    	name : "libs",
+    	location : "../common/libs",
+    	main : "main"
+    }
+    	//monitor
+    	//patient
+    	//nurse
+    	//device
+    	//data
+    	//system
+    ]
 });
 
-require([ "directives","services" ])
+require([ "directives","services","libs" ])
 {
 	//inject app components here
     define(["angular"], function(ng) {
 
-        var startICare = function() {
+        var startApp = function() {
+        	//Load the main module of application
+            ng.module('services').config([ '$appConfigProvider', function($appConfigProvider) {
+                $appConfigProvider.configureAllAppModules();
+            } ]);
             require([ "app" ])
             {
                 console.log("Starting ICare");
             }
         };
         
-        var startApp = function(){
-        	//config app components
-        	startICare();
-        }
         //configuration functions for app components
         
         /**
@@ -58,16 +72,8 @@ require([ "directives","services" ])
              * @description This method starts the iCare Application. This method should be called only after all
              *              configurations are performed.
              */
-            'startICare' : startICare,
+            'startApp' : startApp,
             
-            /**
-             * @ngdoc method
-             * @name configuration.app-config#startApp
-             * @methodOf configuration.app-config
-             * 
-             * @description configure all the app component modules and start iCare
-             */
-            'startApp' : startApp
         };
 
     });

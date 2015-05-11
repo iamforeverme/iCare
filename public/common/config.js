@@ -2,6 +2,7 @@
 'use strict';
 /**
  * This file sets up the basic module libraries you'll need for your application.
+ * This is the entry of requireJs
  */
 requirejs.onError = function(err) {
     // console.log(err.requireType);
@@ -25,8 +26,7 @@ require.config({
     paths : {
         // NAMED REFERENCES
         config : 'config',
-        app : 'app',
-        
+        app : 'app',       
 
         // Bootstrap
         
@@ -37,7 +37,7 @@ require.config({
         // angularjs + modules
         angular : '../bower_components/angular/angular',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
-        'angular-mobile': '../bower_components/mobile-angular-ui/dist/js/mobile-angular-ui'
+        //'angular-mobile': '../bower_components/mobile-angular-ui/dist/js/mobile-angular-ui'
 
     },
     

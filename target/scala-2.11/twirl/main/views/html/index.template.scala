@@ -29,42 +29,54 @@ object index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Form
 Seq[Any](format.raw/*1.18*/("""
 """),format.raw/*2.1*/("""<!DOCTYPE html>
 <html>
-  <head>
-    <title>"""),_display_(/*5.13*/title),format.raw/*5.18*/("""</title>
-    
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>"""),_display_(/*5.9*/title),format.raw/*5.14*/("""</title>
 
-    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
-    
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Styles -->    
-   		<!-- mobile -->
-    <link rel="stylesheet" href="/bower_components/mobile-angular-ui/dist/css/mobile-angular-ui-base.min.css" />
-    
-    <!-- Enables internationalization -->
-   
-  </head>
-  
-  <body class="app" >
-  		<div id="icareApp" style="height:100%; padding:10px" ui-view>
-			<!-- This is the container where the tabs will render -->
+<link rel="shortcut icon" type="image/png"
+	href="/assets/images/favicon.png">
+
+
+<!-- Styles -->
+<!-- mobile -->
+<link rel="stylesheet"
+	href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+<!-- Enables internationalization -->
+</head>
+
+<!-- MainCtrl goes on "body" -->
+<body class="app">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	<!-- TabsCtrl goes here -->
+		<div class="container">
+			<ul class="nav nav-pills">
+				<!-- ng-repeat, tabs -->
+			</ul>
 		</div>
-  
-  </body>
-  
-  <script src="/bower_components/angular/angular.js"></script>
-  <!--  
+	</div>
+
+	<div id="icareApp" style="height: 100%; padding: 10px">
+		<!-- This is the container where the tabs will render -->		
+	</div>
+
+
+</body>
+
+<script src="/bower_components/angular/angular.js"></script>
+<!--  
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
   -->
 
-    <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
-    <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
-    """),_display_(/*37.6*/helper/*37.12*/.requireJs(core =
-    "/bower_components/requirejs/require.js", module = "/common/config.js", folder = "common")),format.raw/*38.95*/("""
-"""),format.raw/*39.1*/("""</html>
+<!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
+<!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
+"""),_display_(/*49.2*/helper/*49.8*/.requireJs(core = "/bower_components/requirejs/require.js",
+module = "/common/config.js", folder = "common")),format.raw/*50.49*/("""
+"""),format.raw/*51.1*/("""</html>
 """))}
   }
 
@@ -77,11 +89,11 @@ Seq[Any](format.raw/*1.18*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Wed May 06 13:34:45 CST 2015
+                  DATE: Mon May 11 21:24:33 CST 2015
                   SOURCE: C:/08_workspace/iCare/app/views/index.scala.html
-                  HASH: b276d051e2cfc2ad6bea498b577b2316e46ab7ab
-                  MATRIX: 723->1|827->17|855->19|928->66|953->71|2240->1332|2255->1338|2389->1451|2418->1453
-                  LINES: 26->1|29->1|30->2|33->5|33->5|65->37|65->37|66->38|67->39
+                  HASH: b4c0f902607b0c7c279d6c3c6167b6598217964f
+                  MATRIX: 723->1|827->17|855->19|921->60|946->65|2364->1457|2378->1463|2508->1572|2537->1574
+                  LINES: 26->1|29->1|30->2|33->5|33->5|77->49|77->49|78->50|79->51
                   -- GENERATED --
               */
           

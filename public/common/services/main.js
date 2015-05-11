@@ -6,6 +6,6 @@ angular.module("services", []);
 /*
  * load angular services files
  */
-define([], function() {
+define(['./app-config-provider'], function() {
              
 });

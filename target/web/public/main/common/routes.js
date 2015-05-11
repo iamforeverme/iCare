@@ -17,10 +17,10 @@ define([ 'angular',
            * Router paths
            * This is where the name of the route is matched to the controller and view template.
            */
-          $stateProvider
-              .state('index', {url: '/index', templateUrl: 'assets/app/index.html', controller: ''});
+         // $stateProvider
+          //    .state('monitor', {url: '/monitor', templateUrl: '', controller: ''});
 
-          $urlRouterProvider
-              .otherwise('index');
+          //$urlRouterProvider
+           //   .otherwise('monitor');
     } ]);
 });
