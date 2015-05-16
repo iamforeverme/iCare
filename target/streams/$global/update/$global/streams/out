@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->org.scala-lang#scala-library;2.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.11.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@15ef196[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@b773a9[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.11.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.11.1 in sbt-chain[0m
@@ -1066,6 +1066,31 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving mysql#mysql-connector-java;5.1.18 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: mysql#mysql-connector-java;5.1.18 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried C:\Users\Kevin\.ivy2\local\mysql\mysql-connector-java\5.1.18\ivys\ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for mysql#mysql-connector-java;5.1.18[0m
+[0m[[0mdebug[0m] [0m		tried file:/D:/workSpace/webApp/iCare/repository/mysql/mysql-connector-java/5.1.18/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-launcher-local: no ivy file found for mysql#mysql-connector-java;5.1.18[0m
+[0m[[0mdebug[0m] [0m		tried file:/D:/toolSoftware/activator-1.3.2/repository/mysql/mysql-connector-java/5.1.18/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	activator-local: no ivy file found for mysql#mysql-connector-java;5.1.18[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for mysql#mysql-connector-java;5.1.18[0m
+[0m[[0mdebug[0m] [0m		=> http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom (5.1.18)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] mysql#mysql-connector-java;5.1.18!mysql-connector-java.pom(pom.original) (984ms)[0m
+[0m[[0mdebug[0m] [0m		tried C:\Users\Kevin\.ivy2\local\mysql\mysql-connector-java\5.1.18\jars\mysql-connector-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/D:/workSpace/webApp/iCare/repository/mysql/mysql-connector-java/5.1.18/jars/mysql-connector-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:/D:/toolSoftware/activator-1.3.2/repository/mysql/mysql-connector-java/5.1.18/jars/mysql-connector-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar[0m
+[0m[[0mdebug[0m] [0m	found mysql#mysql-connector-java;5.1.18 in public[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [compile][0m
@@ -1683,6 +1708,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [test][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [runtime][0m
@@ -2301,6 +2330,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.8 [test->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.typesafe.play#play-test_2.11;2.3.8 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.typesafe.play#play-test_2.11;2.3.8 {test=[default(compile)]}[0m
@@ -4260,6 +4293,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [optional][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime-internal'[0m
@@ -4880,6 +4917,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [optional][0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'test-internal'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for icare#icare_2.11;1.0-SNAPSHOT [test-internal][0m
@@ -5500,6 +5541,10 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies com.typesafe.play#play-java-ws_2.11;2.3.8->oauth.signpost#signpost-commonshttp4;1.2.1.2 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-java-ws_2.11;2.3.8 [compile->master][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->runtime][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->compile][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->mysql#mysql-connector-java;5.1.18 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.8 [test->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.8 [test->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies icare#icare_2.11;1.0-SNAPSHOT->com.typesafe.play#play-test_2.11;2.3.8 [test->compile][0m
@@ -7013,6 +7058,12 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-ebean_2.11;2.3.8!play-java-ebean_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-cache_2.11;2.3.8!play-cache_2.11.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#play-java-ws_2.11;2.3.8!play-java-ws_2.11.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.18/mysql-connector-java-5.1.18.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] mysql#mysql-connector-java;5.1.18!mysql-connector-java.jar (7022ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.apache.commons#commons-lang3;3.1!commons-lang3.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.1!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.typesafe.play#build-link;2.3.8!build-link.jar[0m
@@ -7143,7 +7194,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.11.1!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.2!scala-xml_2.11.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] jline#jline;2.11!jline.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 5679ms :: artifacts dl 260ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 9185ms :: artifacts dl 7135ms[0m
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT compile produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT runtime produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT test produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-test.xml[0m
@@ -7157,5 +7208,5 @@
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT docs produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT pom produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for icare#icare_2.11;1.0-SNAPSHOT scala-tool produced in D:\workSpace\webApp\iCare\target\resolution-cache\reports\icare-icare_2.11-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (5679ms resolve - 260ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (9185ms resolve - 7135ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

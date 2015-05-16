@@ -1,3 +1,6 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
 [0m[[0mdebug[0m] [0m	(D:\workSpace\webApp\iCare\conf\application.conf,D:\workSpace\webApp\iCare\target\scala-2.11\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(D:\workSpace\webApp\iCare\conf\evolutions,D:\workSpace\webApp\iCare\target\scala-2.11\classes\evolutions)[0m
 [0m[[0mdebug[0m] [0m	(D:\workSpace\webApp\iCare\conf\routes,D:\workSpace\webApp\iCare\target\scala-2.11\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(D:\workSpace\webApp\iCare\conf\evolutions\default,D:\workSpace\webApp\iCare\target\scala-2.11\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(D:\workSpace\webApp\iCare\conf\evolutions\default\1.sql,D:\workSpace\webApp\iCare\target\scala-2.11\classes\evolutions\default\1.sql)[0m

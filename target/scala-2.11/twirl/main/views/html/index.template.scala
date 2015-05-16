@@ -46,7 +46,7 @@ Seq[Any](format.raw/*1.18*/("""
   </head>
   
   <body class="app" >
-  
+  <p>"""),_display_(/*21.7*/title),format.raw/*21.12*/("""</p>
   
   </body>
 </html>
@@ -62,11 +62,11 @@ Seq[Any](format.raw/*1.18*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Mon May 11 22:38:04 CST 2015
+                  DATE: Tue May 12 21:57:35 CST 2015
                   SOURCE: D:/workSpace/webApp/iCare/app/views/index.scala.html
-                  HASH: fd93a8153e81a4f1987542f4eb3bd2d1e410073b
-                  MATRIX: 723->1|827->17|855->19|928->66|953->71
-                  LINES: 26->1|29->1|30->2|33->5|33->5
+                  HASH: fd9c8a8af569ec282bf11bd4a00221864907bbd2
+                  MATRIX: 723->1|827->17|855->19|928->66|953->71|1402->494|1428->499
+                  LINES: 26->1|29->1|30->2|33->5|33->5|49->21|49->21
                   -- GENERATED --
               */
           
