@@ -37,6 +37,7 @@ require.config({
         // angularjs + modules
         angular : '../bower_components/angular/angular',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
+        'angular-route' : '../bower_components/angular-route/angular-route.min'
         //'angular-mobile': '../bower_components/mobile-angular-ui/dist/js/mobile-angular-ui'
 
     },

@@ -9,9 +9,8 @@
 define([ "require",
          "angular", 
          "directives", 
-         "services",
-         "routes"], 
-         function(require, angular,directives,services,routes) {
+         "services"], 
+         function(require, angular,directives,services) {
 
     /**
      * Application definition This is where the AngularJS application is defined and all application dependencies
@@ -19,18 +18,31 @@ define([ "require",
      * 
      * @type {module}
      */
-    var icareApp = angular.module('icareApp', [
+    var mainApp = angular.module('mainApp', [
+                        'ngRoute',                    
                         'directives', 
-                        'services', 
-                        'routes']);
+                        'services']);
 
-	
+    mainApp.config([ '$appConfigProvider',  function($appConfigProvider) {
+        $appConfigProvider.configAppCB(mainApp);
+
+    } ]);
+    
+    /**
+     * Router Config This is the router definition that defines all application routes.
+     */
+    mainApp.config([ '$routeProvider', '$locationProvider', '$appConfigProvider', function ($routeProvider, $locationProvider, $appConfigProvider){
+        $appConfigProvider.configRoutesCB($routeProvider, $locationProvider);
+    } ]).run([ '$location', '$rootScope', function($location, $rootScope) {
+
+    } ]);
+
 
     /**
      * Main Controller This controller is the top most level controller that allows for all child controllers to access
      * properties defined on the $rootScope.
      */
-	icareApp.controller('MainCtrl', [
+	mainApp.controller('MainCtrl', [
             '$scope',
             '$rootScope',
             '$routeParams',
@@ -40,22 +52,18 @@ define([ "require",
                     version : '1.0',
                     name : 'iCare'
                 };
+                
+                $appConfig.configMainCtrlCB(mainApp, $scope, $rootScope, $routeParams, $location, $icare);
 
             } ]);
 
-    /**
-     * Tabs controller
-     * 
-     * @param $scope
-     * @param $location
-     * @constructor
-     */
-	icareApp.controller('TabsCtrl', [ '$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
-    } ]);
+	 mainApp.controller('TabsCtrl', [ '$scope', '$rootScope', '$location', '$icare', '$appConfig', function($scope, $rootScope, $location, $icare, $appConfig) {
+	        $appConfig.configTabsCB($scope, $rootScope, $location, $icare);
+	    } ]);
 
     // Bootstrap the application
-    angular.bootstrap(document, [ 'icareApp' ]);
+    angular.bootstrap(document, [ 'mainApp' ]);
 
     // Set on window for debugging
-    window.icareApp = icareApp;
+    window.mainApp = mainApp;
 });

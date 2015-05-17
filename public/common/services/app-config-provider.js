@@ -19,8 +19,8 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
         appConfigCBs.AllCBs = [];
         var app_controllers = [];
         var defaultAppTitle;// undefined;
-        var defaultPid = 1003;
-        var launchApp = false;
+        var defaultPid = 1001;
+        var appMode = 0; //0: normal, 1: adv
 
         /**
          * @ngdoc method
@@ -198,8 +198,10 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
             var controller = app_controllers[0];
 
             route.when('/', {
-                templateUrl : controller.templateUrl,
-                controller : controller.controller
+                //templateUrl : controller.templateUrl,
+                templateUrl : '',
+                //controller : controller.controller
+                controller : ''
             }).otherwise({
                 redirectTo : '/'
             });
@@ -218,19 +220,7 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
             });
         };
 
-        /**
-         * @ngdoc method
-         * @name services.service:$appConfigProvider#configAppCB
-         * @methodOf services.service:$appConfigProvider
-         * 
-         * @description This method is called in the creation of the mainApp and its configuration process. This
-         *              method is used to configure system controllers and the application controllers. All system and
-         *              application configuration information should be added to this service before the app.js would
-         *              call this method.
-         * 
-         * @param {object} icareApp This is the main icareApp module. This method is called during a configuration
-         *            phase of the icareApp.
-         */
+       
         this.configAppCB = function(mainApp) {
             if (app_controllers) {
                 // Register plugin app controllers
@@ -248,18 +238,7 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
 
         };
 
-        /**
-         * @ngdoc method
-         * @name services.service:$appConfigProvider#getCatalog
-         * @methodOf services.service:$appConfigProvider
-         * 
-         * @description This method is called in the creation of the icareApp and its configuration process. This
-         *              method is used to configure system controllers and the application controllers. All system and
-         *              application configuration information should be added to this service before the app.js would
-         *              call this method.
-         * 
-         * @param {object} routeMap This object contains the map information of all the routes.
-         */
+        
         var getCatalog = function(routeMap) {
             /*
              * The userApps array of User Applications is a hack, this will ultimately be attained from a service.
@@ -295,65 +274,139 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                 'catalog' : catalog
             };
         };
-
-        var bootICare = function($location, $routeParams/*, $icare*/) {
-
-            if (defaultAppTitle === undefined && app_controllers[0]) {
-                defaultAppTitle = app_controllers[0].name;
-            }
-
-            return {
-                'appTitle' : defaultAppTitle,
-                'mainPid' : defaultPid
-            };
-
-        };
-
-        /**
-         * 
-         * @ngdoc method
-         * @name services.service:$appConfigProvider#$get
-         * @methodOf services.service:$appConfigProvider
-         * @author Benjamin Beeman
-         * 
-         * @returns {Service} {@link services.$appConfig}
-         * 
-         * @description This service is the Opsis Application configuration service. It provides the means in which
-         *              applications can be dynamically loaded and configured during the initial boot up of the Opsis
-         *              Application. This service should be configured with all included application modules before
-         *              using.
-         */
+        
         this.$get = function() {
-
-            /**
-             * @ngdoc service
-             * @name services.$appConfig
-             * @author Benjamin Beeman
-             * 
-             * @description
-             */
             return {
 
-                /**
-                 * @ngdoc method
-                 * @name services.$appConfig#workstationMode
-                 * @methodOf services.$appConfig
-                 * @description Returns true if workstation mode is enabled; otherwise, false.
-                 */
                 appMode : function() {
-                    return launchApp;
+                    return appMode;
                 },
 
                 
-                configTabsCB : function($scope, $rootScope, $location/*, $opsis*/) {
+                configTabsCB : function($scope, $rootScope, $location/*, $icare*/) {
+                	if (sys_controllers.length > 0) {
+
+                        // All "page" tabs in application
+                        var tabs = [];
+                        
+                        for (var i = 0; i < app_controllers.length; i++) {
+
+                            var ac = app_controllers[i];
+                            
+                            //decide if the tab should be added according to appMode of $icare and app accessLevel 
+                            tabs.push({
+                                link : '#' + sc.href,
+                                label : ac.name,
+                                pid : $icare[sc.pid]
+                            });
+                        }
+
+                        $scope.tabs = tabs;
+
+                        // For now we have to attach the scope of the Tabs control to window in order
+                        // to allow for other parts of the system to attach and detach elements from it.
+                        $opsis.scopeTabs = $scope;
+                    }
 
                 },
 
                
-                configMainCtrlCB : function(mainApp, $scope, $rootScope, $routeParams, $location/*, $opsis*/) {
+                configMainCtrlCB : function(mainApp, $scope, $rootScope, $routeParams, $location, $icare) {
+                	mainApp.baseURL = $location.protocol() + "://" + $location.host() + ":" + $location.port();
+
+                    var baseURL = mainApp.baseURL;
+                    var session = $icare.session();
+                    var ci = getCatalog(mainApp.routes);
+                    session.initSession(baseURL, ci.catalog);
+
+                    // Boot the system apps.
+                    var appManager = $icare.system().AppManager();
+
+                    // Obtain boot parameters...
+                    
+                    if (defaultAppTitle === undefined && app_controllers[0]) {
+                        defaultAppTitle = app_controllers[0].name;                        
+                    }
+
+                    $icare.mainPid = appManager.launch(defaultAppTitle.appTitle);
+                    
+                    //TODO, decide if the app should be launched according to appMode in $icare and app access level
+                    app_controllers.forEach(function(controller) {
+                    	if(controller.pid !== $icare.mainPid)
+                    		$icare[controller.pid] = appManager.launch(controller.name);
+                    });
+
+
+                    // Set active app to the worklist, because launch will set the active app to the last app
+                    // launched.
+                    appManager.setActiveApp($icare.mainPid);
+
+                    var runningApps = appManager.getRunningApps();
+
+                    $scope.iCareCtxt = {
+                        params : $routeParams,
+                        settings : {},
+
+                        
+                        getActiveApp : function() {
+                            return appManager.getActiveApp();
+                        },
+
+                        
+                        quit : function() {
+                            console.log("Quitting the active application");
+                            var pid = this.getActiveApp().getId();
+                            var scopeTabs = $icare.scopeTabs;
+                            $icare.stopApplication(pid);
+                            scopeTabs.removeTab(pid);
+                            this.updateTopPanel();
+                        },
+
+                        appMode : appMode,
+
+                        activeAppAccsLevel : true,
+                        
+                        //TODO, start all Applications
+                        startApplication : function(app) {
+                            // Launch a new instance of the requested app.
+                            var pid = $icare.startApplication(app);
+
+                            var scopeTabs = $icare.scopeTabs;
+                            var activeApp = this.getActiveApp();
+                            var appTitle = activeApp.getAppDescriptor().getTitleId();
+
+                            scopeTabs.tabs.push({
+                                link : '#' + app.href,
+                                label : app.title,
+                                pid : pid,
+                            });
+                            this.updateTopPanel();
+                        },
+
+                       
+                        updateTopPanel : function() {
+                            this.activeAppAccsLevel = this.getActiveApp().getAppDescriptor().getAccessLevel();
+                        },
+
+                        
+                        switchRunningApplication : function(pid) {
+                            $icare.switchRunningApplication(pid);
+                            this.updateTopPanel();
+                        },
+
+                        
+                        navigateHome : function() {
+                        	$icare.navigateHome();
+                        },
+
+                        
+                        init : function() {
+                            return console.log(this);
+                        }
+                    };
+                }
                     
                 }
             };
-        };
     });
 });

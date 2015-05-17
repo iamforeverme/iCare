@@ -6,6 +6,7 @@ angular.module("services", []);
 /*
  * load angular services files
  */
-define(['./app-config-provider'], function() {
+define(['./app-config-provider',
+        './icare-service'], function() {
              
 });

@@ -43,6 +43,7 @@ require([ "directives","services","libs" ])
             ng.module('services').config([ '$appConfigProvider', function($appConfigProvider) {
                 $appConfigProvider.configureAllAppModules();
             } ]);
+            
             require([ "app" ])
             {
                 console.log("Starting ICare");
@@ -51,17 +52,7 @@ require([ "directives","services","libs" ])
         
         //configuration functions for app components
         
-        /**
-         * @ngdoc service
-         * @requires controllers
-         * @requires directives
-         * @requires services
-         * @requires angular
-         * @name configuration.app-config
-         * 
-         * @description These methods are the iCare application configuration support methods. They are used to
-         *              configure and run the iCare Application.
-         */
+        
         return {
 
             /**

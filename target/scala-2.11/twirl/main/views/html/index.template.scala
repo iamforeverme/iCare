@@ -67,16 +67,18 @@ Seq[Any](format.raw/*1.18*/("""
 </body>
 
 <script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
 <!--  
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="/bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.min.js"></script>
+  
   -->
 
 <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
 <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
-"""),_display_(/*49.2*/helper/*49.8*/.requireJs(core = "/bower_components/requirejs/require.js",
-module = "/common/config.js", folder = "common")),format.raw/*50.49*/("""
-"""),format.raw/*51.1*/("""</html>
+"""),_display_(/*51.2*/helper/*51.8*/.requireJs(core = "/bower_components/requirejs/require.js",
+module = "/common/config.js", folder = "common")),format.raw/*52.49*/("""
+"""),format.raw/*53.1*/("""</html>
 """))}
   }
 
@@ -89,11 +91,11 @@ module = "/common/config.js", folder = "common")),format.raw/*50.49*/("""
 }
               /*
                   -- GENERATED --
-                  DATE: Mon May 11 21:24:33 CST 2015
+                  DATE: Tue May 12 21:45:28 CST 2015
                   SOURCE: C:/08_workspace/iCare/app/views/index.scala.html
-                  HASH: b4c0f902607b0c7c279d6c3c6167b6598217964f
-                  MATRIX: 723->1|827->17|855->19|921->60|946->65|2364->1457|2378->1463|2508->1572|2537->1574
-                  LINES: 26->1|29->1|30->2|33->5|33->5|77->49|77->49|78->50|79->51
+                  HASH: 62bb909c541d54fbdce6ae7ea5d5bcb0d7c92e4d
+                  MATRIX: 723->1|827->17|855->19|921->60|946->65|2446->1539|2460->1545|2590->1654|2619->1656
+                  LINES: 26->1|29->1|30->2|33->5|33->5|79->51|79->51|80->52|81->53
                   -- GENERATED --
               */
           
