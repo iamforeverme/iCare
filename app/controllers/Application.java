@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import models.Device;
+import models.Protege;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.SqlRow;
@@ -33,22 +34,44 @@ public class Application extends Controller {
     public static Result query(String type,Integer id) {
     	Map<String,String> returnMap = new HashMap<String,String>();
     	Logger.debug("query: "+type+" id: " + id.toString() );
-    	try{
-    		List<Device> itemList;
-    		if(id==0)
-    			itemList =  Ebean.find(Device.class).
-    				findList();
-    		else
-    			itemList =  Ebean.find(Device.class)
-				.where().eq("id", id).
-				findList();
-	    	for(int i = 0; i < itemList.size(); i++)  
-	        {  
-	    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
-	        }
-		}
-		catch(NullPointerException e){
+    	if(type.equals("device"))
+    	{
+	    	try{
+	    		List<Device> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(Device.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(Device.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
 			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("protege"))
+    	{
+    		try{
+	    		List<Protege> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(Protege.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(Protege.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
         return ok(play.libs.Json.toJson(returnMap));
     }
     
