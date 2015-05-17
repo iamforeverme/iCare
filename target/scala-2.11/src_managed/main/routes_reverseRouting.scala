@@ -1,6 +1,6 @@
 // @SOURCE:C:/08_workspace/iCare/conf/routes
-// @HASH:2085b8540e096cbe51e00cd7517c3b280b86d8d1
-// @DATE:Tue Apr 28 14:30:23 CST 2015
+// @HASH:f943f6858cd8d4523d636fbf991841a69778f955
+// @DATE:Sun May 17 16:06:22 CST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,7 @@ import _root_.play.libs.F
 import Router.queryString
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -23,6 +24,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -31,6 +33,7 @@ package controllers {
 class ReverseAssets {
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -63,6 +66,11 @@ case (path, file) if path == "/public/bower_components" =>
   implicit val _rrc = new ReverseRouteContext(Map(("path", "/public/bower_components")))
   Call("GET", _prefix + { _defaultPrefix } + "bower_components/" + implicitly[PathBindable[String]].unbind("file", file))
                                          
+// @LINE:16
+case (path, file) if path == "/public/app" =>
+  implicit val _rrc = new ReverseRouteContext(Map(("path", "/public/app")))
+  Call("GET", _prefix + { _defaultPrefix } + "app/" + implicitly[PathBindable[String]].unbind("file", file))
+                                         
    }
 }
                                                 
@@ -87,6 +95,7 @@ def index(): Call = {
                   
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -96,6 +105,7 @@ def index(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -104,6 +114,7 @@ import ReverseRouteContext.empty
 class ReverseAssets {
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -127,6 +138,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
       }
       if (path == """ + implicitly[JavascriptLitteral[String]].to("/public/bower_components") + """) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "bower_components/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
+      if (path == """ + implicitly[JavascriptLitteral[String]].to("/public/app") + """) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "app/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
       }
       }
    """
@@ -157,6 +171,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13
@@ -166,6 +181,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
+// @LINE:16
 // @LINE:15
 // @LINE:14
 // @LINE:13

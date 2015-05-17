@@ -1,0 +1,1 @@
+define([ "./patient-controller"], function(ng) {});

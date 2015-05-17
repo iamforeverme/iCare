@@ -13,25 +13,36 @@
 
 
 <!-- Styles -->
-<!-- mobile -->
 <link rel="stylesheet"
-	href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet"
+	href="/stylesheets/main.css" />
+<!-- mobile -->
+
+
 
 <!-- Enables internationalization -->
 </head>
 
 <!-- MainCtrl goes on "body" -->
-<body class="app">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-	<!-- TabsCtrl goes here -->
-		<div class="container">
-			<ul class="nav nav-pills">
-				<!-- ng-repeat, tabs -->
-			</ul>
-		</div>
-	</div>
-
-	<div id="icareApp" style="height: 100%; padding: 10px">
+<body class="app icare-body" data-ng-controller="MainCtrl">
+	<!-- Header -->
+	<div class="bs-docs-header" id="content" tabindex="-1">
+	    <div class="container">
+	      <h1>iCare</h1>
+	       <p>我是一条响亮的口号</p>
+	    </div>
+    </div>
+    
+    <!-- Navigation Bar -->
+	<div class="container" >
+		<ul class="nav nav-pills" data-ng-controller="TabCtrl">
+			<li role="presentation" ng-repeat="tab in tabs" style="float:left">
+				<a data-ng-click="">{{tab.label}}</a>
+			</li>
+		</ul>
+	</div> 
+	<div id="icareApp" style="height: 100%; padding: 10px" ng-view>
 		<!-- This is the container where the tabs will render -->		
 	</div>
 
@@ -48,6 +59,7 @@
 
 <!-- config.js is the Require JS entry point; PLAY framework will switch to use optimized javascript inside /assets/scripts-min when application is running in Production mode -->
 <!-- http://www.playframework.com/documentation/2.2.1/RequireJS-support -->
-@helper.requireJs(core = "/bower_components/requirejs/require.js",
-module = "/common/config.js", folder = "common")
+<script src="/bower_components/requirejs/require.js" data-main="/common/config"></script>
+<!--  @helper.requireJs(core = "/bower_components/requirejs/require.js",
+module = "/common/config.js", folder = "common")-->
 </html>

@@ -2,7 +2,7 @@
 require.config({
 
     paths : {
-    	app: '../common/icare'
+    	app: '../common/icare',
         
     },
 
@@ -12,6 +12,10 @@ require.config({
     },
 
     packages : [  {
+        name : "controllers",
+        location : "../common/controllers",
+        main : "main"
+    }, {
         name : "directives",
         location : "../common/directives",
         main : "main"
@@ -23,6 +27,14 @@ require.config({
     	name : "libs",
     	location : "../common/libs",
     	main : "main"
+    },{
+    	name : "monitor",
+    	location : "/app/monitor",
+    	main : "main"
+    },{
+    	name : "patient",
+    	location : "/app/patient",
+    	main : "main"
     }
     	//monitor
     	//patient
@@ -33,10 +45,10 @@ require.config({
     ]
 });
 
-require([ "directives","services","libs" ])
+require([ "directives","services","controllers","libs"])
 {
 	//inject app components here
-    define(["angular"], function(ng) {
+    define(["angular","monitor","patient"], function(ng) {
 
         var startApp = function() {
         	//Load the main module of application

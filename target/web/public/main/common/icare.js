@@ -47,19 +47,28 @@ define([ "require",
             '$rootScope',
             '$routeParams',
             '$location',
-            function($scope, $rootScope, $routeParams, $location) {
+            '$appConfig',
+            '$icare',
+            function($scope, $rootScope, $routeParams, $location, $appConfig, $icare) {
                 $rootScope.App = {
                     version : '1.0',
                     name : 'iCare'
                 };
-                
+                console.log("entering mainctrl");
                 $appConfig.configMainCtrlCB(mainApp, $scope, $rootScope, $routeParams, $location, $icare);
 
             } ]);
-
-	 mainApp.controller('TabsCtrl', [ '$scope', '$rootScope', '$location', '$icare', '$appConfig', function($scope, $rootScope, $location, $icare, $appConfig) {
-	        $appConfig.configTabsCB($scope, $rootScope, $location, $icare);
-	    } ]);
+	
+     mainApp.controller('TabCtrl', [
+	         '$scope', 
+	         '$rootScope', 
+	         '$location', 
+	         '$icare', 
+	         '$appConfig', 
+	         function($scope, $rootScope, $location, $icare, $appConfig) {   
+	        	 console.log("entering tabctrl");
+	        	 $appConfig.configTabsCB($scope, $rootScope, $location, $icare);
+	         } ]);
 
     // Bootstrap the application
     angular.bootstrap(document, [ 'mainApp' ]);

@@ -1,6 +1,6 @@
 // @SOURCE:C:/08_workspace/iCare/conf/routes
-// @HASH:2085b8540e096cbe51e00cd7517c3b280b86d8d1
-// @DATE:Tue Apr 28 14:30:23 CST 2015
+// @HASH:f943f6858cd8d4523d636fbf991841a69778f955
+// @DATE:Sun May 17 16:06:22 CST 2015
 
 
 import play.core._
@@ -73,7 +73,14 @@ private[this] lazy val controllers_Assets_at5_invoker = createInvoker(
 controllers.Assets.at(fakeValue[String], fakeValue[String]),
 HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """bower_components/$file<.+>"""))
         
-def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """images/$file<.+>""","""controllers.Assets.at(path:String = "/public/images", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """stylesheets/$file<.+>""","""controllers.Assets.at(path:String = "/public/stylesheets", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """common/$file<.+>""","""controllers.Assets.at(path:String = "/public/common", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bower_components/$file<.+>""","""controllers.Assets.at(path:String = "/public/bower_components", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
+
+// @LINE:16
+private[this] lazy val controllers_Assets_at6_route = Route("GET", PathPattern(List(StaticPart(Routes.prefix),StaticPart(Routes.defaultPrefix),StaticPart("app/"),DynamicPart("file", """.+""",false))))
+private[this] lazy val controllers_Assets_at6_invoker = createInvoker(
+controllers.Assets.at(fakeValue[String], fakeValue[String]),
+HandlerDef(this.getClass.getClassLoader, "", "controllers.Assets", "at", Seq(classOf[String], classOf[String]),"GET", """""", Routes.prefix + """app/$file<.+>"""))
+        
+def documentation = List(("""GET""", prefix,"""controllers.Application.index()"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """assets/$file<.+>""","""controllers.Assets.at(path:String = "/public", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """images/$file<.+>""","""controllers.Assets.at(path:String = "/public/images", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """stylesheets/$file<.+>""","""controllers.Assets.at(path:String = "/public/stylesheets", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """common/$file<.+>""","""controllers.Assets.at(path:String = "/public/common", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """bower_components/$file<.+>""","""controllers.Assets.at(path:String = "/public/bower_components", file:String)"""),("""GET""", prefix + (if(prefix.endsWith("/")) "" else "/") + """app/$file<.+>""","""controllers.Assets.at(path:String = "/public/app", file:String)""")).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
   case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
   case l => s ++ l.asInstanceOf[List[(String,String,String)]]
 }}
@@ -125,6 +132,14 @@ case controllers_Assets_at4_route(params) => {
 case controllers_Assets_at5_route(params) => {
    call(Param[String]("path", Right("/public/bower_components")), params.fromPath[String]("file", None)) { (path, file) =>
         controllers_Assets_at5_invoker.call(controllers.Assets.at(path, file))
+   }
+}
+        
+
+// @LINE:16
+case controllers_Assets_at6_route(params) => {
+   call(Param[String]("path", Right("/public/app")), params.fromPath[String]("file", None)) { (path, file) =>
+        controllers_Assets_at6_invoker.call(controllers.Assets.at(path, file))
    }
 }
         

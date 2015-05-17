@@ -198,10 +198,8 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
             var controller = app_controllers[0];
 
             route.when('/', {
-                //templateUrl : controller.templateUrl,
-                templateUrl : '',
-                //controller : controller.controller
-                controller : ''
+                templateUrl : controller.templateUrl,
+                controller : controller.controller
             }).otherwise({
                 redirectTo : '/'
             });
@@ -283,11 +281,24 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                 },
 
                 
-                configTabsCB : function($scope, $rootScope, $location/*, $icare*/) {
-                	if (sys_controllers.length > 0) {
+                configTabsCB : function($scope, $rootScope, $location, $icare) {
 
                         // All "page" tabs in application
                         var tabs = [];
+                        
+                        //mocked tabs
+                        /*tabs = [{
+                        	link:'#/monitor',
+                        	label:"实时监护",
+                        	pid:"1001"
+                        },
+                        {
+                        	link:'#/patient',
+                        	label:"被监护者管理 ",
+                        	pid:"1002"
+                        }
+                        ]*/
+                        
                         
                         for (var i = 0; i < app_controllers.length; i++) {
 
@@ -295,9 +306,9 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                             
                             //decide if the tab should be added according to appMode of $icare and app accessLevel 
                             tabs.push({
-                                link : '#' + sc.href,
-                                label : ac.name,
-                                pid : $icare[sc.pid]
+                                link : '#' + ac.href,
+                                label : ac.label,
+                                pid : $icare[ac.pid]
                             });
                         }
 
@@ -305,8 +316,8 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
 
                         // For now we have to attach the scope of the Tabs control to window in order
                         // to allow for other parts of the system to attach and detach elements from it.
-                        $opsis.scopeTabs = $scope;
-                    }
+                        $icare.scopeTabs = $scope;
+                   // }
 
                 },
 
@@ -328,11 +339,12 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                         defaultAppTitle = app_controllers[0].name;                        
                     }
 
-                    $icare.mainPid = appManager.launch(defaultAppTitle.appTitle);
+                    $icare.mainPid = appManager.launch(defaultAppTitle);
                     
                     //TODO, decide if the app should be launched according to appMode in $icare and app access level
                     app_controllers.forEach(function(controller) {
-                    	if(controller.pid !== $icare.mainPid)
+                    	if(controller.name !== defaultAppTitle)
+                    		console.log("launch app:" + controller.name);
                     		$icare[controller.pid] = appManager.launch(controller.name);
                     });
 

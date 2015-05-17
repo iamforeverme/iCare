@@ -25,8 +25,7 @@ require.config({
     packages : ["directives", "services"],
     paths : {
         // NAMED REFERENCES
-        config : 'config',
-        app : 'app',       
+        config : 'config',      
 
         // Bootstrap
         

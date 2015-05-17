@@ -1,0 +1,101 @@
+@icare-theme-dark:#27ae60;
+@icare-theme-light:#2ecc71;
+
+.bs-docs-header {
+	margin-bottom: 10px;
+	font-size: 20px
+}
+
+.bs-docs-header h1 {
+	margin-top: 0;
+	color: #fff
+}
+
+.bs-docs-header p {
+	margin-bottom: 0;
+	font-weight: 300;
+	line-height: 1.4
+}
+
+.bs-docs-header .container {
+	position: relative
+}
+
+@media ( min-width :768px) {
+	.bs-docs-header {
+		padding-top: 60px;
+		padding-bottom: 60px;
+		font-size: 24px;
+		text-align: left
+	}
+	.bs-docs-header h1 {
+		font-size: 60px;
+		line-height: 1
+	}
+}
+
+@media ( min-width :992px) {
+	.bs-docs-header h1,.bs-docs-header p {
+		margin-right: 380px;
+		text-align: left
+	}
+}
+
+.bs-docs-header,.bs-docs-masthead {
+	position: relative;
+	padding: 30px 15px;
+	color: #cdbfe3;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+	background-color: @icare-theme-dark;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@icare-theme-light),
+		to(@icare-theme-dark) );
+	background-image: -webkit-linear-gradient(top, @icare-theme-light 0, @icare-theme-dark 100%);
+	background-image: -o-linear-gradient(top, @icare-theme-light 0, @icare-theme-dark 100%);
+	background-image: linear-gradient(to bottom, @icare-theme-light 0, @icare-theme-dark 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@icare-theme-light',
+		endColorstr='#6F5499', GradientType=0 );
+	background-repeat: repeat-x
+}
+
+//icare 
+.icare-body{
+	  font-size: 16px;
+}
+
+//TODO
+.nav-pills {
+  > li {
+    float: left;
+
+    // Links rendered as pills
+    > a {
+      border-radius:  @icare-theme-light;
+    }
+    + li {
+      margin-left: 2px;
+    }
+
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: #ffffff;
+        background-color: @icare-theme-light;
+      }
+    }
+  }
+}
+
+
+a {
+  color: @icare-theme-light;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @icare-theme-dark;
+  }
+
+}

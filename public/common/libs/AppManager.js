@@ -1,8 +1,4 @@
 define([ "jquery", 'AppContext' ], function($, acxt) {
-
-    /**
-     * Manages all application instances within an OpsisSystem
-     */
     function AppManager(system, catalog) {
         var icare_system = system;
         var id_ctr = 1001;
@@ -25,7 +21,6 @@ define([ "jquery", 'AppContext' ], function($, acxt) {
 
         /** Launch the named application in the app catalog */
         this.launch = function(appName, pid) {            
-            // Use appName to find the opsisApp in the catalog.
             var icareApp = getApp(appName);
 
             // Launch the app giving it the unique id and arguments.
@@ -33,7 +28,7 @@ define([ "jquery", 'AppContext' ], function($, acxt) {
             if (!launchPid) {
             	    launchPid = id_ctr++;
             }
-            var appCtxt = new acxt.AppContext(opsisApp, launchPid);
+            var appCtxt = new acxt.AppContext(icareApp, launchPid);
 
             appCtxt.setSystem(icare_system);
             var appId = appCtxt.getId();
@@ -116,7 +111,7 @@ define([ "jquery", 'AppContext' ], function($, acxt) {
                 var appDescriptor = processMap[pid].getAppDescriptor();
                 apps.push({
                     title : appDescriptor.getTitle(),
-                    isSystem : appDescriptor.isSystem(),
+                    accessLevel : appDescriptor.getAccessLevel(),
                     href : appDescriptor.getHref(),
                     pid : pid
                 });
