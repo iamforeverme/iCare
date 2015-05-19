@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import models.Device;
+import models.MonitorData;
 import models.Protege;
+import models.SignalType;
+import models.WarningType;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.SqlRow;
@@ -62,6 +65,63 @@ public class Application extends Controller {
 	    				findList();
 	    		else
 	    			itemList =  Ebean.find(Protege.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("signal_type"))
+    	{
+    		try{
+	    		List<SignalType> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(SignalType.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(SignalType.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("warning_type"))
+    	{
+    		try{
+	    		List<WarningType> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(WarningType.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(WarningType.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("monitor_data"))
+    	{
+    		try{
+	    		List<MonitorData> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(MonitorData.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(MonitorData.class)
 					.where().eq("id", id).
 					findList();
 		    	for(int i = 0; i < itemList.size(); i++)  

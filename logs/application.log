@@ -1,59 +1,36 @@
-2015-05-17 15:16:21,105 - [INFO] - from play in pool-4-thread-3 
+2015-05-19 22:42:55,804 - [INFO] - from play in pool-4-thread-4 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-05-17 15:17:57,440 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:43:01,330 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-05-17 15:18:05,664 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-19 22:43:01,689 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://127.0.0.1/icare
 
-2015-05-17 15:18:16,891 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:43:02,288 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 15:18:17,127 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:43:02,291 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+              create table play_evolutions (
+                  id int not null primary key, hash varchar(255) not null,
+                  applied_at timestamp not null,
+                  apply_script text,
+                  revert_script text,
+                  state varchar(255),
+                  last_problem text
+              )
+          
+
+2015-05-19 22:43:02,308 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-05-17 15:18:17,749 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-17 15:18:21,977 - [DEBUG] - from application in play-akka.actor.default-dispatcher-3 
-query: cushion id: 2
-
-2015-05-17 15:18:22,272 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-3 
-select t0.id c0, t0.mac c1, t0.version c2, t0.type c3 from device t0 where t0.id = 2 
-
-2015-05-17 16:05:38,842 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Shutting down connection pool...
-
-2015-05-17 16:05:38,888 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-05-17 16:05:39,433 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Connection pool has been shutdown.
-
-2015-05-17 16:05:39,434 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-Connection pool has been shut down
-
-2015-05-17 16:05:39,799 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-05-17 16:05:39,925 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://127.0.0.1/icare
-
-2015-05-17 16:05:40,908 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:05:41,179 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:05:41,394 - [ERROR] - from application in New I/O worker #3 
+2015-05-19 22:43:02,327 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6m723aeo7 - Internal server error, for (GET) [/query/cushion/2] ->
+! @6m7ihig0h - Internal server error, for (GET) [/query/signal_type/1] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
@@ -86,130 +63,7 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
 
-2015-05-17 16:05:45,925 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:05:45,926 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:05:45,941 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:05:45,944 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-update play_evolutions set state = 'applying_down' where id = 1
-
-2015-05-17 16:05:46,487 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-SET FOREIGN_KEY_CHECKS=0
-
-2015-05-17 16:05:46,489 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-drop table device
-
-2015-05-17 16:05:47,035 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-SET FOREIGN_KEY_CHECKS=1
-
-2015-05-17 16:05:47,044 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-delete from play_evolutions where id = 1
-
-2015-05-17 16:05:47,118 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in New I/O worker #3 
-insert into play_evolutions values(1, 'a0dec5bf7fb23197b2b4558add1f6633f700d211', 2015-05-17, 'create table device (
-id                        integer auto_increment not null,
-mac                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_device primary key (id))
-;
-
-create table protege (
-id                        integer auto_increment not null,
-name                      varchar(255),
-id_card_num               varchar(255),
-telphone                  varchar(255),
-mobile                    varchar(255),
-contacts_name1            varchar(255),
-contacts_tel1             varchar(255),
-contacts_name2            varchar(255),
-history                   varchar(255),
-province                  varchar(255),
-city                      varchar(255),
-address                   varchar(255),
-photo_dir                 varchar(255),
-age                       integer,
-monitoring_level          varchar(255),
-constraint pk_protege primary key (id))
-;
-
-create table staff (
-id                        integer auto_increment not null,
-staff_id                  varchar(255),
-name                      varchar(255),
-id_card_num               varchar(255),
-password                  varchar(255),
-gender                    varchar(255),
-age                       integer,
-tel                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_staff primary key (id))
-;', 'SET FOREIGN_KEY_CHECKS=0;
-
-drop table device;
-
-drop table protege;
-
-drop table staff;
-
-SET FOREIGN_KEY_CHECKS=1;', 'applying_up', '')
-
-2015-05-17 16:05:47,231 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-create table device (
-id                        integer auto_increment not null,
-mac                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_device primary key (id))
-
-2015-05-17 16:05:47,457 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-create table protege (
-id                        integer auto_increment not null,
-name                      varchar(255),
-id_card_num               varchar(255),
-telphone                  varchar(255),
-mobile                    varchar(255),
-contacts_name1            varchar(255),
-contacts_tel1             varchar(255),
-contacts_name2            varchar(255),
-history                   varchar(255),
-province                  varchar(255),
-city                      varchar(255),
-address                   varchar(255),
-photo_dir                 varchar(255),
-age                       integer,
-monitoring_level          varchar(255),
-constraint pk_protege primary key (id))
-
-2015-05-17 16:05:47,597 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-create table staff (
-id                        integer auto_increment not null,
-staff_id                  varchar(255),
-name                      varchar(255),
-id_card_num               varchar(255),
-password                  varchar(255),
-gender                    varchar(255),
-age                       integer,
-tel                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_staff primary key (id))
-
-2015-05-17 16:05:47,639 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-update play_evolutions set state = 'applied' where id = 1
-
-2015-05-17 16:05:47,687 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #3 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:05:48,323 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-19 22:43:35,074 - [WARN] - from play in play-internal-execution-context-1 
 Error stopping plugin
 java.lang.NullPointerException: null
 	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
@@ -240,77 +94,36 @@ java.lang.NullPointerException: null
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-17 16:05:48,326 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:43:35,076 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2015-05-17 16:05:48,327 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-05-19 22:43:35,076 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-05-17 16:05:48,329 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:43:35,104 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2015-05-17 16:05:48,330 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:43:35,105 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 Connection pool has been shut down
 
-2015-05-17 16:05:48,373 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:43:35,151 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-05-17 16:05:48,462 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-19 22:43:35,250 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://127.0.0.1/icare
 
-2015-05-17 16:05:48,530 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:43:35,325 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:05:48,532 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:43:35,326 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-05-17 16:05:48,541 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-17 16:05:48,613 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-query: cushion id: 2
-
-2015-05-17 16:05:48,619 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.id c0, t0.mac c1, t0.version c2, t0.type c3 from device t0 where t0.id = 2 
-
-2015-05-17 16:05:55,129 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
-query: cushion id: 1
-
-2015-05-17 16:05:55,174 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-5 
-select t0.id c0, t0.mac c1, t0.version c2, t0.type c3 from device t0 where t0.id = 1 
-
-2015-05-17 16:21:35,027 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Shutting down connection pool...
-
-2015-05-17 16:21:35,028 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-05-17 16:21:35,030 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Connection pool has been shutdown.
-
-2015-05-17 16:21:35,031 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-Connection pool has been shut down
-
-2015-05-17 16:21:35,071 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-05-17 16:21:35,237 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://127.0.0.1/icare
-
-2015-05-17 16:21:35,318 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:21:35,320 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:21:35,323 - [ERROR] - from application in New I/O worker #6 
+2015-05-19 22:43:35,328 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6m725cm5h - Internal server error, for (GET) [/query/cushion/1] ->
+! @6m7ihkcm4 - Internal server error, for (GET) [/query/signal_type/1] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
@@ -343,138 +156,7 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
 
-2015-05-17 16:21:36,503 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:21:36,505 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:21:36,510 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:21:36,512 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-update play_evolutions set state = 'applying_down' where id = 1
-
-2015-05-17 16:21:36,623 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-SET FOREIGN_KEY_CHECKS=0
-
-2015-05-17 16:21:36,624 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-drop table device
-
-2015-05-17 16:21:36,635 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-drop table protege
-
-2015-05-17 16:21:36,738 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-drop table staff
-
-2015-05-17 16:21:36,783 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-SET FOREIGN_KEY_CHECKS=1
-
-2015-05-17 16:21:36,783 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-delete from play_evolutions where id = 1
-
-2015-05-17 16:21:36,806 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in New I/O worker #6 
-insert into play_evolutions values(1, 'fe8c4539e2b112e92a3fbc43c9c3e7d8c89783de', 2015-05-17, 'create table device (
-id                        integer auto_increment not null,
-mac                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_device primary key (id))
-;
-
-create table protege (
-id                        integer auto_increment not null,
-name                      varchar(255),
-id_card_num               varchar(255),
-telphone                  varchar(255),
-mobile                    varchar(255),
-contacts_name1            varchar(255),
-contacts_tel1             varchar(255),
-contacts_name2            varchar(255),
-contacts_tel2             varchar(255),
-history                   varchar(255),
-province                  varchar(255),
-city                      varchar(255),
-address                   varchar(255),
-photo_dir                 varchar(255),
-age                       integer,
-monitoring_level          varchar(255),
-constraint pk_protege primary key (id))
-;
-
-create table staff (
-id                        integer auto_increment not null,
-staff_id                  varchar(255),
-name                      varchar(255),
-id_card_num               varchar(255),
-password                  varchar(255),
-gender                    varchar(255),
-age                       integer,
-tel                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_staff primary key (id))
-;', 'SET FOREIGN_KEY_CHECKS=0;
-
-drop table device;
-
-drop table protege;
-
-drop table staff;
-
-SET FOREIGN_KEY_CHECKS=1;', 'applying_up', '')
-
-2015-05-17 16:21:36,827 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-create table device (
-id                        integer auto_increment not null,
-mac                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_device primary key (id))
-
-2015-05-17 16:21:36,952 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-create table protege (
-id                        integer auto_increment not null,
-name                      varchar(255),
-id_card_num               varchar(255),
-telphone                  varchar(255),
-mobile                    varchar(255),
-contacts_name1            varchar(255),
-contacts_tel1             varchar(255),
-contacts_name2            varchar(255),
-contacts_tel2             varchar(255),
-history                   varchar(255),
-province                  varchar(255),
-city                      varchar(255),
-address                   varchar(255),
-photo_dir                 varchar(255),
-age                       integer,
-monitoring_level          varchar(255),
-constraint pk_protege primary key (id))
-
-2015-05-17 16:21:37,015 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-create table staff (
-id                        integer auto_increment not null,
-staff_id                  varchar(255),
-name                      varchar(255),
-id_card_num               varchar(255),
-password                  varchar(255),
-gender                    varchar(255),
-age                       integer,
-tel                       varchar(255),
-version                   varchar(255),
-type                      varchar(255),
-constraint pk_staff primary key (id))
-
-2015-05-17 16:21:37,046 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-update play_evolutions set state = 'applied' where id = 1
-
-2015-05-17 16:21:37,067 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #6 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:21:37,478 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-19 22:45:24,426 - [WARN] - from play in play-internal-execution-context-1 
 Error stopping plugin
 java.lang.NullPointerException: null
 	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
@@ -505,71 +187,36 @@ java.lang.NullPointerException: null
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-17 16:21:37,480 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:45:24,428 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2015-05-17 16:21:37,480 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-05-19 22:45:24,428 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-05-17 16:21:37,482 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:45:24,429 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2015-05-17 16:21:37,482 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:45:24,429 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 Connection pool has been shut down
 
-2015-05-17 16:21:37,534 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:45:24,472 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-05-17 16:21:37,753 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-19 22:45:24,582 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://127.0.0.1/icare
 
-2015-05-17 16:21:37,834 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:45:24,655 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:21:37,835 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:45:24,656 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-05-17 16:21:37,841 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-17 16:21:37,850 - [DEBUG] - from application in play-akka.actor.default-dispatcher-4 
-query: cushion id: 1
-
-2015-05-17 16:21:37,852 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-4 
-select t0.id c0, t0.mac c1, t0.version c2, t0.type c3 from device t0 where t0.id = 1 
-
-2015-05-17 16:30:16,352 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Shutting down connection pool...
-
-2015-05-17 16:30:16,353 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
-
-2015-05-17 16:30:16,355 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Connection pool has been shutdown.
-
-2015-05-17 16:30:16,355 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-Connection pool has been shut down
-
-2015-05-17 16:30:16,409 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-05-17 16:30:16,516 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://127.0.0.1/icare
-
-2015-05-17 16:30:16,622 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:30:16,624 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:30:16,628 - [ERROR] - from application in New I/O worker #8 
+2015-05-19 22:45:24,658 - [ERROR] - from application in New I/O worker #1 
 
 
-! @6m726gd9m - Internal server error, for (GET) [/query/cushion/1] ->
+! @6m7ii0if4 - Internal server error, for (GET) [/query/signal_type/1] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
@@ -602,45 +249,440 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
 
-2015-05-17 16:30:18,104 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:48:30,666 - [WARN] - from play in play-internal-execution-context-1 
+Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:106) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.Play$.stop(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:142) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+
+2015-05-19 22:48:30,667 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2015-05-19 22:48:30,668 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-05-19 22:48:30,669 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2015-05-19 22:48:30,669 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-05-19 22:48:30,718 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-05-19 22:48:30,785 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://127.0.0.1/icare
+
+2015-05-19 22:48:30,858 - [ERROR] - from com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager in play-internal-execution-context-1 
+Error in deployment
+java.lang.RuntimeException: Can not find Master [class models.SignalType] in Child[models.MonitorData]
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocMany.initChildMasterProperty(BeanPropertyAssocMany.java:718) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocMany.initialise(BeanPropertyAssocMany.java:122) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.initialiseOther(BeanDescriptor.java:610) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager.initialiseAll(BeanDescriptorManager.java:361) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager.deploy(BeanDescriptorManager.java:251) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.InternalConfiguration.<init>(InternalConfiguration.java:114) [avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServerFactory.createServer(DefaultServerFactory.java:204) [avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServerFactory.createServer(DefaultServerFactory.java:65) [avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebean.EbeanServerFactory.create(EbeanServerFactory.java:58) [avaje-ebeanorm-3.3.4.jar:na]
+	at play.db.ebean.EbeanPlugin.onStart(EbeanPlugin.java:89) [play-java-ebean_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) [play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$.start(Play.scala:90) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+
+2015-05-19 22:48:30,880 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6m7iib81e - Internal server error, for (GET) [/query/signal_type/1] ->
+
+play.api.UnexpectedException: Unexpected exception[RuntimeException: Can not find Master [class models.SignalType] in Child[models.MonitorData]]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:166) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+Caused by: java.lang.RuntimeException: Can not find Master [class models.SignalType] in Child[models.MonitorData]
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocMany.initChildMasterProperty(BeanPropertyAssocMany.java:718) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocMany.initialise(BeanPropertyAssocMany.java:122) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.initialiseOther(BeanDescriptor.java:610) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager.initialiseAll(BeanDescriptorManager.java:361) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.deploy.BeanDescriptorManager.deploy(BeanDescriptorManager.java:251) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.InternalConfiguration.<init>(InternalConfiguration.java:114) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServerFactory.createServer(DefaultServerFactory.java:204) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServerFactory.createServer(DefaultServerFactory.java:65) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at com.avaje.ebean.EbeanServerFactory.create(EbeanServerFactory.java:58) ~[avaje-ebeanorm-3.3.4.jar:na]
+	at play.db.ebean.EbeanPlugin.onStart(EbeanPlugin.java:89) ~[play-java-ebean_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$.start(Play.scala:90) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) ~[play_2.11-2.3.8.jar:2.3.8]
+	... 14 common frames omitted
+
+2015-05-19 22:48:40,988 - [WARN] - from play in play-internal-execution-context-1 
+Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:106) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.Play$.stop(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:142) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+
+2015-05-19 22:48:40,990 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2015-05-19 22:48:40,990 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-05-19 22:48:40,991 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2015-05-19 22:48:40,991 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-05-19 22:48:41,032 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-05-19 22:48:41,115 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://127.0.0.1/icare
+
+2015-05-19 22:48:41,199 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:30:18,108 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:48:41,200 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-05-17 16:30:18,115 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:48:41,202 - [ERROR] - from application in New I/O worker #1 
+
+
+! @6m7iibn8e - Internal server error, for (GET) [/query/signal_type/1] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$.start(Play.scala:90) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+
+2015-05-19 22:52:21,426 - [WARN] - from play in play-internal-execution-context-1 
+Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:106) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.Play$.stop(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:142) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
+
+2015-05-19 22:52:21,427 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2015-05-19 22:52:21,428 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-05-19 22:52:21,429 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2015-05-19 22:52:21,429 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-05-19 22:52:21,463 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-05-19 22:52:21,536 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://127.0.0.1/icare
+
+2015-05-19 22:52:21,606 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:30:18,120 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-update play_evolutions set state = 'applying_down' where id = 1
+2015-05-19 22:52:21,607 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
-2015-05-17 16:30:18,151 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-SET FOREIGN_KEY_CHECKS=0
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
 
-2015-05-17 16:30:18,152 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-drop table device
+2015-05-19 22:52:21,609 - [ERROR] - from application in New I/O worker #1 
 
-2015-05-17 16:30:18,223 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-drop table protege
 
-2015-05-17 16:30:18,230 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-drop table staff
+! @6m7iiob9j - Internal server error, for (GET) [/query/signal_type/1] ->
 
-2015-05-17 16:30:18,245 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-SET FOREIGN_KEY_CHECKS=1
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$.start(Play.scala:90) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
 
-2015-05-17 16:30:18,245 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
-delete from play_evolutions where id = 1
+2015-05-19 22:52:59,881 - [WARN] - from play in play-internal-execution-context-1 
+Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply(Play.scala:107) [play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:106) [play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$stop$1.apply(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.api.Play$.stop(Play.scala:105) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:142) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) [scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) [play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) [play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-17 16:30:18,248 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in New I/O worker #8 
-insert into play_evolutions values(1, '1b962d137ca2656ee07b2e83343fa6ce309816d6', 2015-05-17, 'create table device (
+2015-05-19 22:52:59,883 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Shutting down connection pool...
+
+2015-05-19 22:52:59,883 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+Terminating pool watch thread
+
+2015-05-19 22:52:59,885 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+Connection pool has been shutdown.
+
+2015-05-19 22:52:59,885 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+Connection pool has been shut down
+
+2015-05-19 22:52:59,929 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-05-19 22:53:00,051 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://127.0.0.1/icare
+
+2015-05-19 22:53:00,128 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-05-19 22:53:00,129 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-05-19 22:53:00,131 - [ERROR] - from application in New I/O worker #7 
+
+
+! @6m7ij0g99 - Internal server error, for (GET) [/query/signal_type/1] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:510) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483) ~[play-jdbc_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.collection.immutable.List.foreach(List.scala:383) ~[scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:91) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.api.Play$.start(Play.scala:90) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:157) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.Option.map(Option.scala:145) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:130) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.util.Success.flatMap(Try.scala:230) ~[scala-library-2.11.1.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:128) ~[play_2.11-2.3.8.jar:2.3.8]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:120) ~[play_2.11-2.3.8.jar:2.3.8]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library-2.11.1.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library-2.11.1.jar:na]
+
+2015-05-19 22:53:04,725 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-05-19 22:53:04,729 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-05-19 22:53:04,737 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-05-19 22:53:04,756 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in New I/O worker #7 
+insert into play_evolutions values(1, '587e109fc2a8fe4cb617723118bd01d384a9c3d1', 2015-05-19, 'create table device (
 id                        integer auto_increment not null,
 mac                       varchar(255),
 version                   varchar(255),
 type                      varchar(255),
 constraint pk_device primary key (id))
+;
+
+create table monitor_data (
+id                        integer auto_increment not null,
+protege_id                integer,
+signal_type_id            integer,
+rec_time                  datetime,
+constraint pk_monitor_data primary key (id))
 ;
 
 create table protege (
@@ -664,6 +706,12 @@ constraint uq_protege_id_card_num unique (id_card_num),
 constraint pk_protege primary key (id))
 ;
 
+create table signal_type (
+id                        integer auto_increment not null,
+type                      varchar(255),
+constraint pk_signal_type primary key (id))
+;
+
 create table staff (
 id                        integer auto_increment not null,
 staff_id                  varchar(255),
@@ -676,17 +724,34 @@ tel                       varchar(255),
 version                   varchar(255),
 type                      varchar(255),
 constraint pk_staff primary key (id))
-;', 'SET FOREIGN_KEY_CHECKS=0;
+;
+
+create table warning_type (
+id                        integer auto_increment not null,
+type                      varchar(255),
+constraint pk_warning_type primary key (id))
+;
+
+alter table monitor_data add constraint fk_monitor_data_protege_1 foreign key (protege_id) references protege (id) on delete restrict on update restrict;
+create index ix_monitor_data_protege_1 on monitor_data (protege_id);
+alter table monitor_data add constraint fk_monitor_data_signalType_2 foreign key (signal_type_id) references signal_type (id) on delete restrict on update restrict;
+create index ix_monitor_data_signalType_2 on monitor_data (signal_type_id);', 'SET FOREIGN_KEY_CHECKS=0;
 
 drop table device;
 
+drop table monitor_data;
+
 drop table protege;
+
+drop table signal_type;
 
 drop table staff;
 
+drop table warning_type;
+
 SET FOREIGN_KEY_CHECKS=1;', 'applying_up', '')
 
-2015-05-17 16:30:18,255 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:53:04,776 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
 create table device (
 id                        integer auto_increment not null,
 mac                       varchar(255),
@@ -694,7 +759,15 @@ version                   varchar(255),
 type                      varchar(255),
 constraint pk_device primary key (id))
 
-2015-05-17 16:30:18,303 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:53:04,826 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+create table monitor_data (
+id                        integer auto_increment not null,
+protege_id                integer,
+signal_type_id            integer,
+rec_time                  datetime,
+constraint pk_monitor_data primary key (id))
+
+2015-05-19 22:53:04,853 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
 create table protege (
 id                        integer auto_increment not null,
 name                      varchar(255),
@@ -715,7 +788,13 @@ monitoring_level          varchar(255),
 constraint uq_protege_id_card_num unique (id_card_num),
 constraint pk_protege primary key (id))
 
-2015-05-17 16:30:18,350 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:53:04,883 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+create table signal_type (
+id                        integer auto_increment not null,
+type                      varchar(255),
+constraint pk_signal_type primary key (id))
+
+2015-05-19 22:53:04,904 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
 create table staff (
 id                        integer auto_increment not null,
 staff_id                  varchar(255),
@@ -729,13 +808,31 @@ version                   varchar(255),
 type                      varchar(255),
 constraint pk_staff primary key (id))
 
-2015-05-17 16:30:18,377 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:53:04,921 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+create table warning_type (
+id                        integer auto_increment not null,
+type                      varchar(255),
+constraint pk_warning_type primary key (id))
+
+2015-05-19 22:53:04,967 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+alter table monitor_data add constraint fk_monitor_data_protege_1 foreign key (protege_id) references protege (id) on delete restrict on update restrict
+
+2015-05-19 22:53:05,057 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+create index ix_monitor_data_protege_1 on monitor_data (protege_id)
+
+2015-05-19 22:53:05,122 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+alter table monitor_data add constraint fk_monitor_data_signalType_2 foreign key (signal_type_id) references signal_type (id) on delete restrict on update restrict
+
+2015-05-19 22:53:05,219 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
+create index ix_monitor_data_signalType_2 on monitor_data (signal_type_id)
+
+2015-05-19 22:53:05,243 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
 update play_evolutions set state = 'applied' where id = 1
 
-2015-05-17 16:30:18,425 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #8 
+2015-05-19 22:53:05,246 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in New I/O worker #7 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:30:18,837 - [WARN] - from play in play-internal-execution-context-1 
+2015-05-19 22:53:05,590 - [WARN] - from play in play-internal-execution-context-1 
 Error stopping plugin
 java.lang.NullPointerException: null
 	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.8.jar:2.3.8]
@@ -766,103 +863,85 @@ java.lang.NullPointerException: null
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library-2.11.1.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library-2.11.1.jar:na]
 
-2015-05-17 16:30:18,838 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:53:05,591 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2015-05-17 16:30:18,839 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-05-19 22:53:05,592 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-05-17 16:30:18,840 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
+2015-05-19 22:53:05,593 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2015-05-17 16:30:18,840 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:53:05,594 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 Connection pool has been shut down
 
-2015-05-17 16:30:18,878 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+2015-05-19 22:53:05,627 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
 
-2015-05-17 16:30:18,975 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-19 22:53:05,684 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://127.0.0.1/icare
 
-2015-05-17 16:30:19,044 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:53:05,757 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
 
-2015-05-17 16:30:19,045 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+2015-05-19 22:53:05,758 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
 
             select id, hash, apply_script, revert_script from play_evolutions order by id
         
 
-2015-05-17 16:30:19,052 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-19 22:53:05,866 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-17 16:30:19,061 - [DEBUG] - from application in play-akka.actor.default-dispatcher-6 
-query: cushion id: 1
+2015-05-19 22:53:05,948 - [DEBUG] - from application in play-akka.actor.default-dispatcher-5 
+query: signal_type id: 1
 
-2015-05-17 16:30:19,065 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
-select t0.id c0, t0.mac c1, t0.version c2, t0.type c3 from device t0 where t0.id = 1 
+2015-05-19 22:53:06,255 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-5 
+select t0.id c0, t0.type c1 from signal_type t0 where t0.id = 1 
 
-2015-05-17 16:42:07,099 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Shutting down connection pool...
+2015-05-19 22:54:04,435 - [DEBUG] - from application in play-akka.actor.default-dispatcher-6 
+query: signal_type id: 1
 
-2015-05-17 16:42:07,100 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
-Terminating pool watch thread
+2015-05-19 22:54:04,438 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
+select t0.id c0, t0.type c1 from signal_type t0 where t0.id = 1 
 
-2015-05-17 16:42:07,101 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
-Connection pool has been shutdown.
-
-2015-05-17 16:42:07,102 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-Connection pool has been shut down
-
-2015-05-17 16:42:07,136 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
-JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
-
-2015-05-17 16:42:07,218 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:mysql://127.0.0.1/icare
-
-2015-05-17 16:42:07,339 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
-
-2015-05-17 16:42:07,340 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
-
-            select id, hash, apply_script, revert_script from play_evolutions order by id
-        
-
-2015-05-17 16:42:07,347 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2015-05-17 16:42:07,353 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
+2015-05-19 22:54:06,618 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
 query: protege id: 1
 
-2015-05-17 16:42:07,355 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
+2015-05-19 22:54:06,620 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
 select t0.id c0, t0.name c1, t0.id_card_num c2, t0.telphone c3, t0.mobile c4, t0.contacts_name1 c5, t0.contacts_tel1 c6, t0.contacts_name2 c7, t0.contacts_tel2 c8, t0.history c9, t0.province c10, t0.city c11, t0.address c12, t0.photo_dir c13, t0.age c14, t0.monitoring_level c15 from protege t0 where t0.id = 1 
 
-2015-05-17 16:42:17,311 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
-query: protege id: 2
-
-2015-05-17 16:42:17,315 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
-select t0.id c0, t0.name c1, t0.id_card_num c2, t0.telphone c3, t0.mobile c4, t0.contacts_name1 c5, t0.contacts_tel1 c6, t0.contacts_name2 c7, t0.contacts_tel2 c8, t0.history c9, t0.province c10, t0.city c11, t0.address c12, t0.photo_dir c13, t0.age c14, t0.monitoring_level c15 from protege t0 where t0.id = 2 
-
-2015-05-17 16:42:20,054 - [DEBUG] - from application in play-akka.actor.default-dispatcher-7 
-query: protege id: 0
-
-2015-05-17 16:42:20,061 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-7 
-select t0.id c0, t0.name c1, t0.id_card_num c2, t0.telphone c3, t0.mobile c4, t0.contacts_name1 c5, t0.contacts_tel1 c6, t0.contacts_name2 c7, t0.contacts_tel2 c8, t0.history c9, t0.province c10, t0.city c11, t0.address c12, t0.photo_dir c13, t0.age c14, t0.monitoring_level c15 from protege t0
-
-2015-05-17 16:42:27,853 - [DEBUG] - from application in play-akka.actor.default-dispatcher-8 
-query: protege id: 4
-
-2015-05-17 16:42:27,859 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-8 
-select t0.id c0, t0.name c1, t0.id_card_num c2, t0.telphone c3, t0.mobile c4, t0.contacts_name1 c5, t0.contacts_tel1 c6, t0.contacts_name2 c7, t0.contacts_tel2 c8, t0.history c9, t0.province c10, t0.city c11, t0.address c12, t0.photo_dir c13, t0.age c14, t0.monitoring_level c15 from protege t0 where t0.id = 4 
-
-2015-05-17 16:51:37,316 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-4-thread-3 
+2015-05-19 22:55:26,107 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Shutting down connection pool...
 
-2015-05-17 16:51:37,319 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
+2015-05-19 22:55:26,108 - [DEBUG] - from com.jolbox.bonecp.PoolWatchThread in BoneCP-pool-watch-thread 
 Terminating pool watch thread
 
-2015-05-17 16:51:37,323 - [INFO] - from com.jolbox.bonecp.BoneCP in pool-4-thread-3 
+2015-05-19 22:55:26,109 - [INFO] - from com.jolbox.bonecp.BoneCP in play-internal-execution-context-1 
 Connection pool has been shutdown.
 
-2015-05-17 16:51:37,324 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in pool-4-thread-3 
+2015-05-19 22:55:26,109 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
 Connection pool has been shut down
+
+2015-05-19 22:55:26,142 - [DEBUG] - from com.jolbox.bonecp.BoneCPDataSource in play-internal-execution-context-1 
+JDBC URL = jdbc:mysql://127.0.0.1/icare, Username = root, partitions = 1, max (per partition) = 30, min (per partition) = 5, idle max age = 10 min, idle test period = 1 min, strategy = DEFAULT
+
+2015-05-19 22:55:26,261 - [INFO] - from play in play-internal-execution-context-1 
+database [default] connected at jdbc:mysql://127.0.0.1/icare
+
+2015-05-19 22:55:26,346 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+select id, hash, apply_script, revert_script, state, last_problem from play_evolutions where state like 'applying_%'
+
+2015-05-19 22:55:26,347 - [DEBUG] - from com.jolbox.bonecp.StatementHandle in play-internal-execution-context-1 
+
+            select id, hash, apply_script, revert_script from play_evolutions order by id
+        
+
+2015-05-19 22:55:26,355 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2015-05-19 22:55:26,361 - [DEBUG] - from application in play-akka.actor.default-dispatcher-6 
+query: monitor_data id: 1
+
+2015-05-19 22:55:26,363 - [DEBUG] - from com.jolbox.bonecp.PreparedStatementHandle in play-akka.actor.default-dispatcher-6 
+select t0.id c0, t0.rec_time c1, t0.protege_id c2, t0.signal_type_id c3 from monitor_data t0 where t0.id = 1 
 

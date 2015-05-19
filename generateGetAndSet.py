@@ -1,38 +1,20 @@
 inputStr = """
-		@Id
+	@Id
 	Integer id;
 	  
-	@Constraints.Required
-	String name;
+	@ManyToOne
+	Protege protege;
+	
+	@ManyToOne
+	SignalType signalType;
 	
 	@Constraints.Required
-	String id_card_num;
-	
-	String telphone;
-	
-	@Constraints.Required
-	String mobile;
-	
-	@Constraints.Required
-	String contacts_name1;
-	
-	@Constraints.Required
-	String contacts_tel1;
-	String contacts_name2;
-	String contacts_tel2;
-	String history;
-	String province;
-	String city;
-	String address;
-	String photo_dir;
-	Integer age;
-	String monitoring_level;
+	Timestamp rec_time;
 """
 strValue = ""
 valueList = []
 for line in inputStr.splitlines():
-	if("Integer" in line or
-	   "String" in line):
+	if(";" in line):
 		type = line.split()[0]
 		value = line.split()[-1].strip(";")
 		outputLine =" 	public " + type + " get" +value[0].upper() + value[1:] + "(){\n	    return "+value+";\n	}"

@@ -46,6 +46,17 @@ public class Protege extends Model {
 	Integer age;
 	String monitoring_level;
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="protege")
+	List<MonitorData> monitorData;
+	
+	public List<MonitorData> getMonitorData()
+	{
+		return monitorData;
+	}
+	public void setMonitorData( List<MonitorData> data)
+	{
+		this.monitorData = data;
+	}
  	public Integer getId(){
 	    return id;
 	}
