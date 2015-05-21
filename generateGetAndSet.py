@@ -1,15 +1,25 @@
 inputStr = """
-	@Id
+@Id
 	Integer id;
-	  
-	@ManyToOne
-	Protege protege;
-	
-	@ManyToOne
-	SignalType signalType;
 	
 	@Constraints.Required
-	Timestamp rec_time;
+	String staff_id;
+	
+	@Constraints.Required
+	String Name;
+	
+	@Constraints.Required
+	String id_card_num;
+	
+	@Constraints.Required
+	String password;
+	
+	String gender;
+	
+	Integer age;
+	
+	@Constraints.Required
+	String tel;
 """
 strValue = ""
 valueList = []

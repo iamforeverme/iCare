@@ -1,6 +1,7 @@
 package models;
 
 import java.util.*;
+
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -42,9 +43,10 @@ public class Staff extends Model {
 	@Constraints.Required
 	String tel;
 	
-	String version;
-	  
-	String type;
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="staff")
+	List<Warning> warns;
+	
 	
  	public Integer getId(){
 	    return id;
@@ -94,31 +96,22 @@ public class Staff extends Model {
  	public void setTel(String tel){
 	    this.tel = tel;
 	}
- 	public String getVersion(){
-	    return version;
-	}
- 	public void setVersion(String version){
-	    this.version = version;
-	}
- 	public String getType(){
-	    return type;
-	}
- 	public void setType(String type){
-	    this.type = type;
-	}
-
- 	public String toJSONString() {
- 		
- 	    return "{ staff_id:'"+staff_id.toString()
-			 	+"',Name:'"+Name.toString()
-			 	+"',id_card_num:'"+id_card_num.toString()
-			 	+"',password:'"+password.toString()
-			 	+"',gender:'"+gender.toString()
-			 	+"',age:'"+age.toString()
-			 	+"',tel:'"+tel.toString()
-			 	+"',version:'"+version.toString()
-			 	+"',type:'"+type.toString()
-			 	+"' }";
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
  	}
+
+    public String toJSONString() {
+	
+    return "{ staff_id:'"+staff_id.toString()
+		+"',Name:'"+Name.toString()
+		+"',id_card_num:'"+id_card_num.toString()
+		+"',password:'"+password.toString()
+		+"',gender:'"+gender.toString()
+		+"',age:'"+age.toString()
+		+"',tel:'"+tel.toString()
+		    		+"' }";
+		}
+
   
 }

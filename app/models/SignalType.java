@@ -25,6 +25,9 @@ public class SignalType extends Model {
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="signalType")
 	List<MonitorData> monitorData;
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="signalType")
+	List<CommandToDevice> commands;
+	
 	public List<MonitorData> getMonitorData()
 	{
 		return monitorData;
@@ -46,7 +49,10 @@ public class SignalType extends Model {
  	public void setType(String type){
 	    this.type = type;
 	}
-
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
+ 	}
     public String toJSONString() {
 	
     return "{ type:'"+type.toString()

@@ -4,10 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import models.CommandToDevice;
 import models.Device;
+import models.Location;
 import models.MonitorData;
 import models.Protege;
 import models.SignalType;
+import models.Warning;
 import models.WarningType;
 
 import com.avaje.ebean.Ebean;
@@ -122,6 +125,63 @@ public class Application extends Controller {
 	    				findList();
 	    		else
 	    			itemList =  Ebean.find(MonitorData.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("location"))
+    	{
+    		try{
+	    		List<Location> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(Location.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(Location.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("command"))
+    	{
+    		try{
+	    		List<CommandToDevice> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(CommandToDevice.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(CommandToDevice.class)
+					.where().eq("id", id).
+					findList();
+		    	for(int i = 0; i < itemList.size(); i++)  
+		        {  
+		    		returnMap.put(itemList.get(i).getId().toString(), itemList.get(i).toJSONString());
+		        }
+			}
+			catch(NullPointerException e){
+				}
+    	}
+    	else if(type.equals("warning"))
+    	{
+    		try{
+	    		List<Warning> itemList;
+	    		if(id==0)
+	    			itemList =  Ebean.find(Warning.class).
+	    				findList();
+	    		else
+	    			itemList =  Ebean.find(Warning.class)
 					.where().eq("id", id).
 					findList();
 		    	for(int i = 0; i < itemList.size(); i++)  

@@ -2,6 +2,7 @@ package models;
 
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,6 +27,9 @@ public class MonitorData extends Model {
 	
 	@ManyToOne
 	SignalType signalType;
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="data")
+	List<Warning> warns;
 	
 	@Constraints.Required
 	Timestamp rec_time;
@@ -57,6 +61,11 @@ public class MonitorData extends Model {
 	    this.rec_time = rec_time;
 	}
 
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
+ 	}
+ 	
     public String toJSONString() {
 	
     return "{ protege:'"+protege.toString()

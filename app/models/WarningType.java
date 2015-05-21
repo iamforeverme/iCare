@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -18,6 +20,13 @@ public class WarningType extends Model {
 	  
 	@Constraints.Required
 	String type;
+	
+	@Constraints.Required
+	String measurement;
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="warningType")
+	List<Warning> warns;
+	
   
  	public Integer getId(){
 	    return id;
@@ -31,11 +40,23 @@ public class WarningType extends Model {
  	public void setType(String type){
 	    this.type = type;
 	}
+ 	public String getMeasurement(){
+	    return measurement;
+	}
+ 	public void setMeasurement(String measurement){
+	    this.measurement = measurement;
+	}
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
+ 	}
 
     public String toJSONString() {
 	
     return "{ type:'"+type.toString()
++"',measurement:'"+measurement.toString()
 
     		+"' }";
     }
+
 }

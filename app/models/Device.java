@@ -1,6 +1,7 @@
 package models;
 
 import java.util.*;
+
 import javax.persistence.*;
 
 import play.db.ebean.*;
@@ -23,7 +24,13 @@ public class Device extends Model {
 	String mac;
 	  
 	String version;
-	  
+	 
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="device")
+	List<Location> locations;
+	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="device")
+	List<CommandToDevice> commands;
+	
 	String type;
 	
  	public Integer getId(){
@@ -50,6 +57,10 @@ public class Device extends Model {
  	public void setType(String type){
 	    this.type = type;
 	}
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
+ 	}
     
     public String toJSONString() {
     	

@@ -49,6 +49,9 @@ public class Protege extends Model {
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="protege")
 	List<MonitorData> monitorData;
 	
+	@OneToMany(cascade=CascadeType.ALL,mappedBy="protege")
+	List<Location> locations;
+	
 	public List<MonitorData> getMonitorData()
 	{
 		return monitorData;
@@ -153,6 +156,10 @@ public class Protege extends Model {
  	public void setMonitoring_level(String monitoring_level){
 	    this.monitoring_level = monitoring_level;
 	}
+ 	public String toString()
+ 	{
+ 		return this.id.toString();
+ 	}
 
     public String toJSONString() {
 	
