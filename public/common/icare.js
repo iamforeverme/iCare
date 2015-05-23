@@ -8,9 +8,10 @@
  */
 define([ "require",
          "angular", 
+         "controllers",
          "directives", 
          "services"], 
-         function(require, angular,directives,services) {
+         function(require, angular, controllers, directives, services) {
 
     /**
      * Application definition This is where the AngularJS application is defined and all application dependencies
@@ -19,7 +20,8 @@ define([ "require",
      * @type {module}
      */
     var mainApp = angular.module('mainApp', [
-                        'ngRoute',                    
+                        'ngRoute',
+                        'controllers',
                         'directives', 
                         'services']);
 

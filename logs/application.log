@@ -1,114 +1,12 @@
-2015-05-17 09:24:26,854 - [INFO] - from play in pool-4-thread-1 
+2015-05-23 10:14:26,963 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2015-05-17 09:26:24,888 - [INFO] - from play in play-internal-execution-context-1 
+2015-05-23 10:14:40,678 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2015-05-17 09:32:21,532 - [INFO] - from play in play-internal-execution-context-2 
+2015-05-23 10:17:50,231 - [INFO] - from play in play-internal-execution-context-2 
 Application started (Dev)
 
-2015-05-17 09:33:09,420 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-05-17 09:39:55,457 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-05-17 09:41:27,171 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-05-17 09:50:11,388 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-05-17 09:50:54,996 - [INFO] - from play in play-internal-execution-context-4 
-Application started (Dev)
-
-2015-05-17 10:24:58,068 - [INFO] - from play in play-internal-execution-context-9 
-Application started (Dev)
-
-2015-05-17 10:38:50,108 - [INFO] - from play in play-internal-execution-context-17 
-Application started (Dev)
-
-2015-05-17 10:49:18,146 - [INFO] - from play in play-internal-execution-context-17 
-Application started (Dev)
-
-2015-05-17 10:49:39,197 - [INFO] - from play in play-internal-execution-context-17 
-Application started (Dev)
-
-2015-05-17 10:53:34,191 - [INFO] - from play in play-internal-execution-context-20 
-Application started (Dev)
-
-2015-05-17 11:15:56,666 - [INFO] - from play in play-internal-execution-context-23 
-Application started (Dev)
-
-2015-05-17 11:16:31,527 - [INFO] - from play in play-internal-execution-context-25 
-Application started (Dev)
-
-2015-05-17 11:17:11,432 - [INFO] - from play in play-internal-execution-context-25 
-Application started (Dev)
-
-2015-05-17 11:17:31,773 - [INFO] - from play in play-internal-execution-context-28 
-Application started (Dev)
-
-2015-05-17 11:25:26,960 - [INFO] - from play in play-internal-execution-context-28 
-Application started (Dev)
-
-2015-05-17 14:30:43,949 - [INFO] - from play in play-internal-execution-context-48 
-Application started (Dev)
-
-2015-05-17 14:31:34,992 - [INFO] - from play in play-internal-execution-context-53 
-Application started (Dev)
-
-2015-05-17 14:35:34,948 - [INFO] - from play in play-internal-execution-context-53 
-Application started (Dev)
-
-2015-05-17 14:38:04,801 - [INFO] - from play in play-internal-execution-context-53 
-Application started (Dev)
-
-2015-05-17 14:39:25,304 - [INFO] - from play in play-internal-execution-context-53 
-Application started (Dev)
-
-2015-05-17 14:45:10,661 - [INFO] - from play in play-internal-execution-context-65 
-Application started (Dev)
-
-2015-05-17 14:46:23,141 - [INFO] - from play in play-internal-execution-context-65 
-Application started (Dev)
-
-2015-05-17 14:53:25,522 - [INFO] - from play in play-internal-execution-context-67 
-Application started (Dev)
-
-2015-05-17 14:54:21,602 - [INFO] - from play in play-internal-execution-context-71 
-Application started (Dev)
-
-2015-05-17 14:58:33,140 - [INFO] - from play in play-internal-execution-context-76 
-Application started (Dev)
-
-2015-05-17 15:01:06,753 - [INFO] - from play in play-internal-execution-context-78 
-Application started (Dev)
-
-2015-05-17 15:05:28,895 - [INFO] - from play in play-internal-execution-context-78 
-Application started (Dev)
-
-2015-05-17 15:06:32,358 - [INFO] - from play in play-internal-execution-context-78 
-Application started (Dev)
-
-2015-05-17 15:07:18,625 - [INFO] - from play in play-internal-execution-context-78 
-Application started (Dev)
-
-2015-05-17 15:09:13,577 - [INFO] - from play in play-internal-execution-context-87 
-Application started (Dev)
-
-2015-05-17 15:50:57,795 - [INFO] - from play in play-internal-execution-context-116 
-Application started (Dev)
-
-2015-05-17 16:06:34,340 - [INFO] - from play in play-internal-execution-context-117 
-Application started (Dev)
-
-2015-05-17 16:34:21,097 - [INFO] - from play in play-internal-execution-context-144 
-Application started (Dev)
-
-2015-05-17 16:39:47,024 - [INFO] - from play in play-internal-execution-context-148 
-Application started (Dev)
-
-2015-05-17 16:57:09,737 - [INFO] - from play in play-internal-execution-context-159 
+2015-05-23 10:18:34,936 - [INFO] - from play in play-internal-execution-context-3 
 Application started (Dev)
 

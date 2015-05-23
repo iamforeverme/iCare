@@ -11,7 +11,7 @@ require.config({
        
     },
 
-    packages : [  {
+    packages : [{
         name : "controllers",
         location : "../common/controllers",
         main : "main"
@@ -36,8 +36,6 @@ require.config({
     	location : "/app/patient",
     	main : "main"
     }
-    	//monitor
-    	//patient
     	//nurse
     	//device
     	//data
@@ -45,10 +43,10 @@ require.config({
     ]
 });
 
-require([ "directives","services","controllers","libs"])
+require([ "controllers", "directives", "services"])
 {
 	//inject app components here
-    define(["angular","monitor","patient"], function(ng) {
+    define(["angular","libs","monitor","patient"], function(ng) {
 
         var startApp = function() {
         	//Load the main module of application

@@ -7,6 +7,6 @@ angular.module("directives", []);
 /*
  * load angular directives files
  */
-define([], function() {
+define(["./alarm/alarm"], function() {
              
 });

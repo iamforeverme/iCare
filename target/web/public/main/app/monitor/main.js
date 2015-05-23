@@ -14,7 +14,8 @@ define([ "angular", "services", "./controllers/main" ], function(ng) {
                 label : "实时监护",
                 templateUrl : "/app/monitor/views/monitor.html",
                 controller : "monitorController",
-                href : "/monitor"
+                href : "/monitor",
+                pid:"mainPid"
             }, 0)
         });
     } ]);

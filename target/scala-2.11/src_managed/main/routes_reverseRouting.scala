@@ -1,6 +1,6 @@
 // @SOURCE:C:/08_workspace/iCare/conf/routes
-// @HASH:f943f6858cd8d4523d636fbf991841a69778f955
-// @DATE:Sun May 17 16:06:22 CST 2015
+// @HASH:db33a411a6e6cac79700f79cd8edba0b8e2759d9
+// @DATE:Fri May 22 15:13:37 CST 2015
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,7 @@ import _root_.play.libs.F
 import Router.queryString
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -24,6 +25,7 @@ import Router.queryString
 // @LINE:6
 package controllers {
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -33,6 +35,7 @@ package controllers {
 class ReverseAssets {
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -71,6 +74,11 @@ case (path, file) if path == "/public/app" =>
   implicit val _rrc = new ReverseRouteContext(Map(("path", "/public/app")))
   Call("GET", _prefix + { _defaultPrefix } + "app/" + implicitly[PathBindable[String]].unbind("file", file))
                                          
+// @LINE:17
+case (path, file) if path == "/public/libs" =>
+  implicit val _rrc = new ReverseRouteContext(Map(("path", "/public/libs")))
+  Call("GET", _prefix + { _defaultPrefix } + "libs/" + implicitly[PathBindable[String]].unbind("file", file))
+                                         
    }
 }
                                                 
@@ -95,6 +103,7 @@ def index(): Call = {
                   
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -105,6 +114,7 @@ def index(): Call = {
 package controllers.javascript {
 import ReverseRouteContext.empty
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -114,6 +124,7 @@ import ReverseRouteContext.empty
 class ReverseAssets {
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -141,6 +152,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
       }
       if (path == """ + implicitly[JavascriptLitteral[String]].to("/public/app") + """) {
       return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "app/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
+      }
+      if (path == """ + implicitly[JavascriptLitteral[String]].to("/public/libs") + """) {
+      return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "libs/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("file", file)})
       }
       }
    """
@@ -171,6 +185,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14
@@ -181,6 +196,7 @@ def index : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
+// @LINE:17
 // @LINE:16
 // @LINE:15
 // @LINE:14

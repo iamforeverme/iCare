@@ -284,21 +284,7 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                 configTabsCB : function($scope, $rootScope, $location, $icare) {
 
                         // All "page" tabs in application
-                        var tabs = [];
-                        
-                        //mocked tabs
-                        /*tabs = [{
-                        	link:'#/monitor',
-                        	label:"实时监护",
-                        	pid:"1001"
-                        },
-                        {
-                        	link:'#/patient',
-                        	label:"被监护者管理 ",
-                        	pid:"1002"
-                        }
-                        ]*/
-                        
+                        var tabs = [];                     
                         
                         for (var i = 0; i < app_controllers.length; i++) {
 
@@ -310,14 +296,23 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                                 label : ac.label,
                                 pid : $icare[ac.pid]
                             });
+                            console.log(tabs[i]);
                         }
 
                         $scope.tabs = tabs;
-
+                        
                         // For now we have to attach the scope of the Tabs control to window in order
                         // to allow for other parts of the system to attach and detach elements from it.
                         $icare.scopeTabs = $scope;
                    // }
+                        
+                     // Handle changing the tab
+                        $scope.tabClass = function(tab) {
+                            if ("#" + $location.path() == tab.link) {
+                                return "active";
+                            }
+                            return "";
+                        };
 
                 },
 
@@ -354,6 +349,7 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                     appManager.setActiveApp($icare.mainPid);
 
                     var runningApps = appManager.getRunningApps();
+                    
 
                     $scope.iCareCtxt = {
                         params : $routeParams,
@@ -416,6 +412,8 @@ define([ 'angular', "iCareSystem", "iCareApp" ], function(angular, system, appMo
                             return console.log(this);
                         }
                     };
+                    
+                    $scope.iCareCtxt.switchRunningApplication($icare.mainPid);
                 }
                     
                 }

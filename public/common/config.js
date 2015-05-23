@@ -22,22 +22,27 @@ require.config({
     xhtml : false,
     // urlArgs : '_=' + Date.now(),
     waitSeconds : 15,
-    packages : ["directives", "services"],
+    packages : ["controllers","directives", "services"],
     paths : {
         // NAMED REFERENCES
         config : 'config',      
 
         // Bootstrap
-        
-        // jquery: '../bower_components/iids/components/jquery/jquery.min',
+        bootstrap :'../bower_components/bootstrap/dist/js/bootstrap',
+        datatables: '../bower_components/datatables/media/js/jquery.dataTables',
+        //'datatables-bootstrap': '/bower_components/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3',
+        'datatables-bootstrap': '/libs/datatables-plugin-bootstrap/dataTables.bootstrap',
         jquery : '../bower_components/jquery/dist/jquery',
         requirejs : '../bower_components/requirejs/require',
+        
 
         // angularjs + modules
         angular : '../bower_components/angular/angular',
         'angular-ui-router': '../bower_components/angular-ui-router/release/angular-ui-router.min',
         'angular-route' : '../bower_components/angular-route/angular-route.min'
         //'angular-mobile': '../bower_components/mobile-angular-ui/dist/js/mobile-angular-ui'
+        	
+       
 
     },
     
@@ -50,6 +55,14 @@ require.config({
         bootstrap : {
             deps : [ 'jquery' ],
             exports : '$.fn.modal'
+        },
+        datatables: {
+        	deps: ['jquery'],
+        	exports : 'datatables'
+        },
+        'datatables-bootstrap': {
+        	deps:['bootstrap','datatables'],
+        	exports : 'datatables-bootstrap'
         }
     },
     config : {

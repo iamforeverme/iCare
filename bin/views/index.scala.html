@@ -13,10 +13,29 @@
 
 
 <!-- Styles -->
-<link rel="stylesheet"
+ <link rel="stylesheet"
 	href="/bower_components/bootstrap/dist/css/bootstrap.css" />
 <link rel="stylesheet"
+	href="/libs/datatables-plugin-bootstrap/dataTables.bootstrap.css" />
+
+<!-- 
+<link rel="stylesheet"
+	href="/stylesheets/bootstrap-icare.css" />
+	 -->
+<link rel="stylesheet"
 	href="/stylesheets/main.css" />
+
+<!--
+<link rel="stylesheet"
+	href="/bower_components/datatables/media/css/jquery.dataTables.css" />
+<link rel="stylesheet"
+	href="/bower_components/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css" />
+  
+
+-->
+
+
+
 <!-- mobile -->
 
 
@@ -26,24 +45,66 @@
 
 <!-- MainCtrl goes on "body" -->
 <body class="app icare-body" data-ng-controller="MainCtrl">
-	<!-- Header -->
-	<div class="bs-docs-header" id="content" tabindex="-1">
-	    <div class="container">
-	      <h1>iCare</h1>
-	       <p>我是一条响亮的口号</p>
-	    </div>
-    </div>
-    
     <!-- Navigation Bar -->
+
+	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="TabCtrl">
+		<!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-1 col-lg-1"></div>
+				<div class="navbar-header" width="200px" >
+					<a class="navbar-brand" ng-click="navigateHome()"> 
+						<img alt="Brand" src="/assets/icons/logo.png">
+					</a>
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" ng-click="navigateHome()">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">My First App</a>
+				</div>
+	
+				<ul class="nav navbar-nav" >
+					<li role="presentation" ng-class="tabClass(tab)"
+						ng-repeat="tab in tabs"><a
+						data-ng-click="iCareCtxt.switchRunningApplication(tab.pid)">{{tab.label}}</a>
+					</li>
+				</ul>
+				<div class="col-md-1 col-lg-1"></div>
+			</div>
+
+		</div>
+	</nav>
+	<!--  Alarm -->
+	<!--
 	<div class="container" >
-		<ul class="nav nav-pills" data-ng-controller="TabCtrl">
-			<li role="presentation" ng-repeat="tab in tabs" style="float:left">
-				<a data-ng-click="">{{tab.label}}</a>
-			</li>
-		</ul>
-	</div> 
-	<div id="icareApp" style="height: 100%; padding: 10px" ng-view>
+		<div class="row">
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<div alarm></div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<div alarm></div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-3">
+				<div class="thumbnail">
+					<div alarm></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	  -->
+	
+	<div id="icareApp" class="container" style="height: 100%; padding: 10px" >
+		<div class="row">
+			<div  class="col-lg-10  col-mid-10" ng-view></div>
 		<!-- This is the container where the tabs will render -->		
+		</div>
 	</div>
 
 

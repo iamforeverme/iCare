@@ -5,5 +5,6 @@ angular.module("controllers", []);
 /**
  * I load all angular controller files in controllers directory.
  */
-define([], 
-    function(){});
+define([], function() {
+    
+});
